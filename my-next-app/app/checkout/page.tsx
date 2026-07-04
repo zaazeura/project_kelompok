@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
+import { useHistory } from "@/lib/history-context";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Toast from "@/components/Toast";
@@ -10,6 +11,7 @@ import Link from "next/link";
 
 export default function CheckoutPage() {
   const { items, totalItems, totalPrice, clearCart } = useCart();
+  const { addOrder } = useHistory();
   const [toast, setToast] = useState<string | null>(null);
   const [form, setForm] = useState({
     name: "",
@@ -17,11 +19,21 @@ export default function CheckoutPage() {
     address: "",
     notes: "",
     payment: "transfer",
+    delivery: "delivery",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setToast("Pesanan berhasil! Terima kasih atas pembelian Anda.");
+    addOrder({
+      items: items.map((item) => ({
+        name: item.product.name,
+        qty: item.quantity,
+        price: item.product.discountPrice,
+      })),
+      total: totalPrice,
+      delivery: form.delivery,
+    });
+    setToast("Pesanan berhasil! Riwayat belanja Anda sudah tercatat.");
     clearCart();
   };
 
@@ -101,6 +113,39 @@ export default function CheckoutPage() {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <h3 className="font-bold text-gray-900 mb-4">Metode Pengiriman</h3>
+              <div className="space-y-3">
+                {[
+                  { id: "delivery", label: "Antar ke Alamat", icon: "🚚", desc: "Diantar ke alamat Anda" },
+                  { id: "pickup", label: "Ambil di Toko", icon: "🏪", desc: "Ambil langsung di toko terdekat" },
+                ].map((method) => (
+                  <label
+                    key={method.id}
+                    className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition ${
+                      form.delivery === method.id
+                        ? "border-green-700 bg-green-50"
+                        : "border-gray-200 hover:border-gray-300"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value={method.id}
+                      checked={form.delivery === method.id}
+                      onChange={(e) => setForm({ ...form, delivery: e.target.value })}
+                      className="accent-green-700"
+                    />
+                    <span className="text-xl">{method.icon}</span>
+                    <div>
+                      <span className="font-medium text-gray-900">{method.label}</span>
+                      <span className="text-xs text-gray-500 ml-2">{method.desc}</span>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
               <h3 className="font-bold text-gray-900 mb-4">Metode Pembayaran</h3>
               <div className="space-y-3">
                 {[
@@ -160,8 +205,10 @@ export default function CheckoutPage() {
                   <span>{formatRupiah(totalPrice)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Ongkos Kirim</span>
-                  <span className="text-green-700">Gratis</span>
+                  <span className="text-gray-500">
+                    {form.delivery === "pickup" ? "Biaya Pengambilan" : "Ongkos Kirim"}
+                  </span>
+                  <span className="text-green-700 font-medium">Gratis</span>
                 </div>
                 <div className="border-t pt-2 flex justify-between">
                   <span className="font-bold text-gray-900">Total</span>

@@ -100,10 +100,6 @@ export default function CartPage() {
                     <span className="text-gray-500">Ongkos Kirim</span>
                     <span className="text-green-700 font-medium">Gratis</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Diskon Voucher</span>
-                    <span className="text-green-700 font-medium">-Rp 0</span>
-                  </div>
                   <div className="border-t pt-3 flex justify-between">
                     <span className="font-bold text-gray-900">Total</span>
                     <span className="font-bold text-lg text-green-700">{formatRupiah(totalPrice)}</span>

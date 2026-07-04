@@ -1,14 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
+import { useWishlist } from "@/lib/wishlist-context";
+import { useNotifications } from "@/lib/notif-context";
+import { useAuth } from "@/lib/auth-context";
 import { navCategories } from "@/data/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("Makanan & Minuman");
+  const [showProfile, setShowProfile] = useState(false);
+  const profileRef = useRef<HTMLDivElement>(null);
   const { totalItems } = useCart();
+  const { totalItems: wishlistCount } = useWishlist();
+  const { unreadCount } = useNotifications();
+  const { user, isLoggedIn, logout } = useAuth();
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
+        setShowProfile(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -47,6 +65,28 @@ export default function Navbar() {
               🔍
             </Link>
             <Link
+              href="/wishlist"
+              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm hover:bg-green-600 hover:text-white transition relative"
+            >
+              ♡
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-pink-500 text-white text-[10px] rounded-full flex items-center justify-center">
+                  {wishlistCount}
+                </span>
+              )}
+            </Link>
+            <Link
+              href="/notifikasi"
+              className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm hover:bg-green-600 hover:text-white transition relative"
+            >
+              🔔
+              {unreadCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center">
+                  {unreadCount}
+                </span>
+              )}
+            </Link>
+            <Link
               href="/keranjang"
               className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm hover:bg-green-600 hover:text-white transition relative"
             >
@@ -57,6 +97,69 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
+            {/* Profile Icon */}
+            <div className="relative" ref={profileRef}>
+              <button
+                onClick={() => setShowProfile(!showProfile)}
+                className="w-8 h-8 rounded-full bg-green-700 text-white flex items-center justify-center text-sm font-bold hover:bg-green-800 transition"
+              >
+                {isLoggedIn && user ? user.name.charAt(0).toUpperCase() : "U"}
+              </button>
+              {showProfile && (
+                <div className="absolute right-0 top-10 w-72 bg-white rounded-2xl shadow-lg border border-gray-100 p-5 z-50">
+                  {isLoggedIn && user ? (
+                    <>
+                      <div className="flex items-center gap-3 mb-4 pb-4 border-b">
+                        <div className="w-12 h-12 rounded-full bg-green-700 text-white flex items-center justify-center text-lg font-bold">
+                          {user.name.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <div className="font-bold text-gray-900">{user.name}</div>
+                          <div className="text-xs text-gray-500">{user.email}</div>
+                        </div>
+                      </div>
+                      <div className="space-y-2 mb-4">
+                        <Link href="/profil" onClick={() => setShowProfile(false)} className="block py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded-xl transition">
+                          👤 Profil Saya
+                        </Link>
+                        <Link href="/riwayat" onClick={() => setShowProfile(false)} className="block py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded-xl transition">
+                          📋 Riwayat Belanja
+                        </Link>
+                        <Link href="/wishlist" onClick={() => setShowProfile(false)} className="block py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded-xl transition">
+                          ♡ Wishlist
+                        </Link>
+                        <Link href="/notifikasi" onClick={() => setShowProfile(false)} className="block py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded-xl transition">
+                          🔔 Notifikasi
+                        </Link>
+                      </div>
+                      <button
+                        onClick={() => { logout(); setShowProfile(false); }}
+                        className="block w-full text-center py-2.5 border-2 border-red-500 text-red-500 font-semibold rounded-xl hover:bg-red-50 transition"
+                      >
+                        Logout
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-center mb-4 pb-4 border-b">
+                        <div className="w-12 h-12 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-lg font-bold mx-auto mb-2">
+                          ?
+                        </div>
+                        <div className="font-semibold text-gray-900">Belum Masuk</div>
+                        <div className="text-xs text-gray-500">Masuk untuk akses semua fitur</div>
+                      </div>
+                      <Link
+                        href="/login"
+                        onClick={() => setShowProfile(false)}
+                        className="block w-full text-center py-2.5 bg-green-700 text-white font-semibold rounded-xl hover:bg-green-800 transition mb-2"
+                      >
+                        Masuk / Daftar
+                      </Link>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
           <button
             className="md:hidden text-xl p-1"
@@ -115,6 +218,23 @@ export default function Navbar() {
               <Link href="/keranjang" className="block py-2 text-gray-800 font-medium" onClick={() => setOpen(false)}>
                 🛒 Keranjang {totalItems > 0 && `(${totalItems})`}
               </Link>
+              <Link href="/wishlist" className="block py-2 text-gray-800 font-medium" onClick={() => setOpen(false)}>
+                ♡ Wishlist {wishlistCount > 0 && `(${wishlistCount})`}
+              </Link>
+              <Link href="/notifikasi" className="block py-2 text-gray-800 font-medium" onClick={() => setOpen(false)}>
+                🔔 Notifikasi {unreadCount > 0 && `(${unreadCount})`}
+              </Link>
+              <Link href="/profil" className="block py-2 text-gray-800 font-medium" onClick={() => setOpen(false)}>
+                👤 Profil Saya
+              </Link>
+              <Link href="/riwayat" className="block py-2 text-gray-800 font-medium" onClick={() => setOpen(false)}>
+                📋 Riwayat Belanja
+              </Link>
+              {!isLoggedIn && (
+                <Link href="/login" className="block py-2 text-green-700 font-semibold" onClick={() => setOpen(false)}>
+                  🔑 Masuk / Daftar
+                </Link>
+              )}
             </div>
           </div>
         </div>

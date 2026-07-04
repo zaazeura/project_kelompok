@@ -69,24 +69,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Team */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Tim Kami</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {team.map((t) => (
-              <div key={t.name} className="bg-white rounded-2xl p-5 shadow-sm text-center">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-20 h-20 rounded-full object-cover mx-auto mb-3 border-3 border-green-200"
-                />
-                <h3 className="font-semibold text-gray-900">{t.name}</h3>
-                <p className="text-xs text-gray-500 mt-1">{t.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="bg-green-700 rounded-2xl p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-3">Bergabung dengan FoodSaver</h2>

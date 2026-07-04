@@ -9,6 +9,7 @@ import Toast from "@/components/Toast";
 import { getProductById, getProductsByCategory } from "@/data/products";
 import { getShopById } from "@/data/shops";
 import { useCart } from "@/lib/cart-context";
+import { useReviews } from "@/lib/review-context";
 import { formatRupiah, formatDateTime, isFreshProductStillGood } from "@/lib/format";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
@@ -17,9 +18,11 @@ export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
   const { addItem } = useCart();
+  const { getReviews, addReview } = useReviews();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [toast, setToast] = useState<string | null>(null);
+  const [reviewForm, setReviewForm] = useState({ name: "", rating: 5, comment: "" });
 
   const productId = Number(params.id);
   const product = getProductById(productId);
@@ -232,8 +235,114 @@ export default function ProductDetailPage() {
                 </div>
               </Link>
             )}
+
+            {/* Shop Map */}
+            {shop && (
+              <div className="bg-white rounded-2xl shadow-sm mt-4 overflow-hidden">
+                <div className="p-4 border-b">
+                  <h3 className="font-semibold text-gray-900 text-sm">📍 Lokasi Toko</h3>
+                </div>
+                <div className="relative w-full h-60">
+                  <iframe
+                    src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.940639384798!2d106.82278277475549!3d-6.208763493794348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f15963a6e2e3%3A0x5c70c5c8f3e7c8e7!2s${encodeURIComponent(shop.location)}!5e0!3m2!1sid!2sid!4v1720000000000!5m2!1sid!2sid`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0"
+                  />
+                </div>
+                <div className="p-3 text-xs text-gray-500">
+                  📍 {shop.location} · {product.distance} dari lokasi Anda
+                </div>
+              </div>
+            )}
           </div>
         </div>
+
+        {/* Reviews */}
+        <section className="mt-12">
+          <h2 className="text-xl font-bold text-gray-900 mb-5">Ulasan Produk</h2>
+
+          {/* Review Form */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm mb-6">
+            <h3 className="font-semibold text-gray-900 mb-4">Tulis Ulasan</h3>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-sm text-gray-600">Rating:</span>
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button
+                  key={star}
+                  onClick={() => setReviewForm({ ...reviewForm, rating: star })}
+                  className={`text-2xl transition ${star <= reviewForm.rating ? "text-yellow-400" : "text-gray-300"}`}
+                >
+                  ★
+                </button>
+              ))}
+            </div>
+            <input
+              type="text"
+              value={reviewForm.name}
+              onChange={(e) => setReviewForm({ ...reviewForm, name: e.target.value })}
+              placeholder="Nama Anda"
+              className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition mb-3 text-sm"
+            />
+            <textarea
+              value={reviewForm.comment}
+              onChange={(e) => setReviewForm({ ...reviewForm, comment: e.target.value })}
+              placeholder="Tulis ulasan Anda..."
+              rows={3}
+              className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition mb-3 text-sm"
+            />
+            <button
+              onClick={() => {
+                if (!reviewForm.name || !reviewForm.comment) {
+                  setToast("Harap isi nama dan ulasan!");
+                  return;
+                }
+                addReview({ productId: product.id, userName: reviewForm.name, rating: reviewForm.rating, comment: reviewForm.comment });
+                setReviewForm({ name: "", rating: 5, comment: "" });
+                setToast("Ulasan berhasil dikirim!");
+              }}
+              className="px-6 py-2.5 bg-green-700 text-white font-semibold rounded-xl hover:bg-green-800 transition text-sm"
+            >
+              Kirim Ulasan
+            </button>
+          </div>
+
+          {/* Review List */}
+          <div className="space-y-4">
+            {getReviews(product.id).length === 0 ? (
+              <div className="text-center py-8 text-gray-400">
+                <div className="text-3xl mb-2">💬</div>
+                <p>Belum ada ulasan. Jadilah yang pertama!</p>
+              </div>
+            ) : (
+              getReviews(product.id).map((review) => (
+                <div key={review.id} className="bg-white rounded-2xl p-5 shadow-sm">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm font-bold">
+                        {review.userName.charAt(0).toUpperCase()}
+                      </div>
+                      <span className="font-semibold text-gray-900 text-sm">{review.userName}</span>
+                    </div>
+                    <span className="text-xs text-gray-400">{review.date}</span>
+                  </div>
+                  <div className="flex items-center gap-1 mb-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star} className={`text-sm ${star <= review.rating ? "text-yellow-400" : "text-gray-300"}`}>
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-sm text-gray-600">{review.comment}</p>
+                </div>
+              ))
+            )}
+          </div>
+        </section>
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (

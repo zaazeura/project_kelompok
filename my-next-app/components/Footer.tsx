@@ -22,24 +22,24 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="text-white font-semibold mb-3">Mitra</h4>
+          <h4 className="text-white font-semibold mb-3">Akun</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/tentang" className="hover:text-white transition">Daftar Toko</Link></li>
-            <li><Link href="/tentang" className="hover:text-white transition">Dashboard</Link></li>
-            <li><Link href="/tentang" className="hover:text-white transition">Kebijakan Mitra</Link></li>
+            <li><Link href="/profil" className="hover:text-white transition">Profil Saya</Link></li>
+            <li><Link href="/riwayat" className="hover:text-white transition">Riwayat Belanja</Link></li>
+            <li><Link href="/keranjang" className="hover:text-white transition">Keranjang</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="text-white font-semibold mb-3">Bantuan</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/kontak" className="hover:text-white transition">FAQ</Link></li>
+            <li><Link href="/faq" className="hover:text-white transition">FAQ</Link></li>
             <li><Link href="/kontak" className="hover:text-white transition">Hubungi Kami</Link></li>
             <li><Link href="/tentang" className="hover:text-white transition">Tentang Kami</Link></li>
           </ul>
         </div>
       </div>
       <div className="text-center mt-8 text-sm border-t border-white/10 pt-6">
-        &copy; 2024 FoodSaver. Semua hak dilindungi.
+        &copy; 2026 FoodSaver. Semua hak dilindungi.
       </div>
     </footer>
   );

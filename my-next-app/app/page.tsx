@@ -60,24 +60,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Voucher Banner */}
-      <section className="max-w-6xl mx-auto px-4 mb-14">
-        <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between text-white gap-4">
-          <div>
-            <div className="text-lg font-bold">🎫 Voucher Eksklusif untukmu!</div>
-            <div className="text-sm text-green-100">
-              Daftar sekarang dan dapatkan diskon 30% untuk pembelian pertama
-            </div>
-          </div>
-          <Link
-            href="/tentang"
-            className="px-6 py-2 bg-white text-green-700 font-semibold rounded-xl hover:bg-green-50 transition"
-          >
-            Daftar Gratis
-          </Link>
-        </div>
-      </section>
-
       {/* Produk */}
       <section className="max-w-6xl mx-auto px-4 mb-16">
         <div className="flex items-center justify-between mb-5">
