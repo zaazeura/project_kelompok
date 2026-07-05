@@ -19,6 +19,7 @@ import { StockProvider } from "@/lib/stock-context";
 import { RecommendationProvider } from "@/lib/recommendation-context";
 import { QueuePredictionProvider } from "@/lib/queue-prediction-context";
 import { StockSyncProvider } from "@/lib/stock-sync-context";
+import { StorePromoProvider } from "@/lib/store-promo-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -51,7 +52,9 @@ export default function RootLayout({
                                       <StockProvider>
                                         <RecommendationProvider>
                                           <QueuePredictionProvider>
-                                            <StockSyncProvider>{children}</StockSyncProvider>
+                                            <StockSyncProvider>
+                                              <StorePromoProvider>{children}</StorePromoProvider>
+                                            </StockSyncProvider>
                                           </QueuePredictionProvider>
                                         </RecommendationProvider>
                                       </StockProvider>
