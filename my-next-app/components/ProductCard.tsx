@@ -6,6 +6,18 @@ import { useWishlist } from "@/lib/wishlist-context";
 import { formatRupiah } from "@/lib/format";
 import type { Product } from "@/data/products";
 import { useState } from "react";
+import { TokopediaLogo, ShopeeLogo, LazadaLogo, TiktokShopLogo, BukalapakLogo, BlibliLogo, GrabFoodLogo, GoFoodLogo } from "./MarketplaceLogos";
+
+const LOGO_MAP: Record<string, React.ComponentType<{ size?: number }>> = {
+  "Tokopedia": TokopediaLogo,
+  "Shopee": ShopeeLogo,
+  "Lazada": LazadaLogo,
+  "TikTok Shop": TiktokShopLogo,
+  "Bukalapak": BukalapakLogo,
+  "Blibli": BlibliLogo,
+  "GrabFood": GrabFoodLogo,
+  "GoFood": GoFoodLogo,
+};
 
 interface ProductCardProps {
   product: Product;
@@ -85,14 +97,19 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.marketplaceLinks && product.marketplaceLinks.length > 0 && (
             <div className="flex items-center gap-1 mb-2">
               <span className="text-xs text-gray-400">Tersedia di:</span>
-              <div className="flex gap-1">
-                {product.marketplaceLinks.slice(0, 3).map((link) => (
-                  <span key={link.name} className="text-sm" title={link.name}>
-                    {link.icon}
-                  </span>
-                ))}
-                {product.marketplaceLinks.length > 3 && (
-                  <span className="text-xs text-gray-400">+{product.marketplaceLinks.length - 3}</span>
+              <div className="flex gap-1 items-center">
+                {product.marketplaceLinks.slice(0, 4).map((link) => {
+                  const Logo = LOGO_MAP[link.name];
+                  return Logo ? (
+                    <Logo key={link.name} size={18} />
+                  ) : (
+                    <span key={link.name} className="text-xs bg-gray-200 px-1 rounded" title={link.name}>
+                      {link.name.charAt(0)}
+                    </span>
+                  );
+                })}
+                {product.marketplaceLinks.length > 4 && (
+                  <span className="text-xs text-gray-400">+{product.marketplaceLinks.length - 4}</span>
                 )}
               </div>
             </div>

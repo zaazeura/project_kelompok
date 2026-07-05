@@ -6,32 +6,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
+import { MARKETPLACE_CONFIG } from "@/components/MarketplaceLogos";
 
 const MARKETPLACES = [
-  { id: "tokopedia", name: "Tokopedia", icon: "🟢", color: "bg-green-600" },
-  { id: "shopee", name: "Shopee", icon: "🟠", color: "bg-orange-500" },
-  { id: "lazada", name: "Lazada", icon: "🔵", color: "bg-blue-600" },
-  { id: "tiktokshop", name: "TikTok Shop", icon: "🎵", color: "bg-black" },
-  { id: "bukalapak", name: "Bukalapak", icon: "🔴", color: "bg-red-600" },
+  { id: "tokopedia", searchUrl: (q: string) => `https://www.tokopedia.com/search?st=product&q=${encodeURIComponent(q)}` },
+  { id: "shopee", searchUrl: (q: string) => `https://shopee.co.id/search?keyword=${encodeURIComponent(q)}` },
+  { id: "lazada", searchUrl: (q: string) => `https://www.lazada.co.id/catalog/?q=${encodeURIComponent(q)}` },
+  { id: "tiktokshop", searchUrl: (q: string) => `https://www.tiktok.com/search?q=${encodeURIComponent(q)}` },
+  { id: "bukalapak", searchUrl: (q: string) => `https://www.bukalapak.com/products?search%5Bkeywords%5D=${encodeURIComponent(q)}` },
 ];
-
-function getMarketplaceUrl(id: string, q: string) {
-  const search = encodeURIComponent(q);
-  switch (id) {
-    case "tokopedia":
-      return `https://www.tokopedia.com/search?st=product&q=${search}`;
-    case "shopee":
-      return `https://shopee.co.id/search?keyword=${search}`;
-    case "lazada":
-      return `https://www.lazada.co.id/catalog/?q=${search}`;
-    case "tiktokshop":
-      return `https://www.tiktok.com/search?q=${search}`;
-    case "bukalapak":
-      return `https://www.bukalapak.com/products?search%5Bkeywords%5D=${search}`;
-    default:
-      return `https://www.google.com/search?q=${search}`;
-  }
-}
 
 function ProductsContent() {
   const searchParams = useSearchParams();
@@ -80,7 +63,9 @@ function ProductsContent() {
     return result;
   }, [search, sortBy, filterCategory]);
 
-  const marketplaceUrl = getMarketplaceUrl(activeMarketplace, search || "semua produk");
+  const active = MARKETPLACES.find((m) => m.id === activeMarketplace)!;
+  const activeConfig = MARKETPLACE_CONFIG[activeMarketplace];
+  const marketplaceUrl = active.searchUrl(search || "semua produk");
 
   return (
     <div className="pt-28 pb-16 max-w-6xl mx-auto px-4">
@@ -88,21 +73,24 @@ function ProductsContent() {
         {search ? `Hasil Pencarian: "${search}"` : "Semua Produk"}
       </h1>
 
-      {/* Tab Switcher: EarthShop vs Marketplace */}
+      {/* Tab Switcher */}
       <div className="flex gap-2 mb-6">
         <button
           onClick={() => setShowTab("earthshop")}
-          className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition ${
+          className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 ${
             showTab === "earthshop"
               ? "bg-green-700 text-white shadow-md"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
           }`}
         >
-          🌍 EarthShop ({filteredProducts.length})
+          🌍 EarthShop
+          <span className={`text-xs px-2 py-0.5 rounded-full ${showTab === "earthshop" ? "bg-white/20" : "bg-gray-200"}`}>
+            {filteredProducts.length}
+          </span>
         </button>
         <button
           onClick={() => setShowTab("marketplace")}
-          className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition ${
+          className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 ${
             showTab === "marketplace"
               ? "bg-orange-500 text-white shadow-md"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -172,30 +160,35 @@ function ProductsContent() {
       ) : (
         /* Marketplace Tab */
         <div className="space-y-4">
-          {/* Marketplace Tabs */}
+          {/* Marketplace Tabs with Real Logos */}
           <div className="flex gap-2 overflow-x-auto pb-2">
-            {MARKETPLACES.map((mp) => (
-              <button
-                key={mp.id}
-                onClick={() => setActiveMarketplace(mp.id)}
-                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition ${
-                  activeMarketplace === mp.id
-                    ? `${mp.color} text-white shadow-md`
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                <span>{mp.icon}</span>
-                {mp.name}
-              </button>
-            ))}
+            {MARKETPLACES.map((mp) => {
+              const cfg = MARKETPLACE_CONFIG[mp.id];
+              const isActive = activeMarketplace === mp.id;
+              return (
+                <button
+                  key={mp.id}
+                  onClick={() => setActiveMarketplace(mp.id)}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition ${
+                    isActive
+                      ? `${cfg.color} text-white shadow-md`
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  <cfg.Logo size={22} />
+                  {cfg.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* Marketplace Iframe */}
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
             <div className="p-3 border-b bg-gray-50 flex items-center justify-between">
-              <span className="text-sm text-gray-600">
-                Hasil pencarian &quot;{search || 'semua produk'}&quot; di{" "}
-                <span className="font-semibold">{MARKETPLACES.find((m) => m.id === activeMarketplace)?.name}</span>
+              <span className="text-sm text-gray-600 flex items-center gap-2">
+                Hasil pencarian &quot;{search || "semua produk"}&quot; di
+                <activeConfig.Logo size={20} />
+                <span className="font-semibold">{activeConfig.label}</span>
               </span>
               <a
                 href={marketplaceUrl}
@@ -218,7 +211,7 @@ function ProductsContent() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full"
-              title={`Produk di ${activeMarketplace}`}
+              title={`Produk di ${activeConfig.label}`}
             />
           </div>
         </div>

@@ -4,6 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import DonationCard from "@/components/DonationCard";
 import CategoryCard from "@/components/CategoryCard";
 import SearchBar from "@/components/SearchBar";
+import { TokopediaLogo, ShopeeLogo, LazadaLogo, TiktokShopLogo } from "@/components/MarketplaceLogos";
 import { products } from "@/data/products";
 import { donations } from "@/data/donations";
 import { categories } from "@/data/categories";
@@ -102,17 +103,17 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { name: "Tokopedia", icon: "🟢", bg: "bg-green-600" },
-              { name: "Shopee", icon: "🟠", bg: "bg-orange-500" },
-              { name: "Lazada", icon: "🔵", bg: "bg-blue-600" },
-              { name: "TikTok Shop", icon: "🎵", bg: "bg-gray-800" },
+              { name: "Tokopedia", Logo: TokopediaLogo, bg: "bg-[#42B549]" },
+              { name: "Shopee", Logo: ShopeeLogo, bg: "bg-[#EE4D2D]" },
+              { name: "Lazada", Logo: LazadaLogo, bg: "bg-[#0F146D]" },
+              { name: "TikTok Shop", Logo: TiktokShopLogo, bg: "bg-black" },
             ].map((mp) => (
               <Link
                 key={mp.name}
                 href="/produk?search="
-                className={`${mp.bg} rounded-xl p-3 text-center text-white font-medium text-sm hover:opacity-90 transition`}
+                className={`${mp.bg} rounded-xl p-3 text-center text-white font-medium text-sm hover:opacity-90 transition flex flex-col items-center gap-2`}
               >
-                <span className="text-xl block mb-1">{mp.icon}</span>
+                <mp.Logo size={32} />
                 {mp.name}
               </Link>
             ))}

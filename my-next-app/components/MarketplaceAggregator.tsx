@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MARKETPLACE_CONFIG } from "./MarketplaceLogos";
 
 interface MarketplaceAggregatorProps {
   productName: string;
@@ -8,62 +9,21 @@ interface MarketplaceAggregatorProps {
 }
 
 const MARKETPLACES = [
-  {
-    id: "tokopedia",
-    name: "Tokopedia",
-    icon: "🟢",
-    color: "bg-green-600",
-    hoverColor: "hover:bg-green-700",
-    searchUrl: (q: string) => `https://www.tokopedia.com/search?st=product&q=${encodeURIComponent(q)}`,
-  },
-  {
-    id: "shopee",
-    name: "Shopee",
-    icon: "🟠",
-    color: "bg-orange-500",
-    hoverColor: "hover:bg-orange-600",
-    searchUrl: (q: string) => `https://shopee.co.id/search?keyword=${encodeURIComponent(q)}`,
-  },
-  {
-    id: "lazada",
-    name: "Lazada",
-    icon: "🔵",
-    color: "bg-blue-600",
-    hoverColor: "hover:bg-blue-700",
-    searchUrl: (q: string) => `https://www.lazada.co.id/catalog/?q=${encodeURIComponent(q)}`,
-  },
-  {
-    id: "tiktokshop",
-    name: "TikTok Shop",
-    icon: "🎵",
-    color: "bg-black",
-    hoverColor: "hover:bg-gray-800",
-    searchUrl: (q: string) => `https://www.tiktok.com/search?q=${encodeURIComponent(q)}`,
-  },
-  {
-    id: "bukalapak",
-    name: "Bukalapak",
-    icon: "🔴",
-    color: "bg-red-600",
-    hoverColor: "hover:bg-red-700",
-    searchUrl: (q: string) => `https://www.bukalapak.com/products?search%5Bkeywords%5D=${encodeURIComponent(q)}`,
-  },
-  {
-    id: "blibli",
-    name: "Blibli",
-    icon: "🟣",
-    color: "bg-purple-600",
-    hoverColor: "hover:bg-purple-700",
-    searchUrl: (q: string) => `https://www.blibli.com/cari/${encodeURIComponent(q)}`,
-  },
+  { id: "tokopedia", searchUrl: (q: string) => `https://www.tokopedia.com/search?st=product&q=${encodeURIComponent(q)}` },
+  { id: "shopee", searchUrl: (q: string) => `https://shopee.co.id/search?keyword=${encodeURIComponent(q)}` },
+  { id: "lazada", searchUrl: (q: string) => `https://www.lazada.co.id/catalog/?q=${encodeURIComponent(q)}` },
+  { id: "tiktokshop", searchUrl: (q: string) => `https://www.tiktok.com/search?q=${encodeURIComponent(q)}` },
+  { id: "bukalapak", searchUrl: (q: string) => `https://www.bukalapak.com/products?search%5Bkeywords%5D=${encodeURIComponent(q)}` },
+  { id: "blibli", searchUrl: (q: string) => `https://www.blibli.com/cari/${encodeURIComponent(q)}` },
 ];
 
-export default function MarketplaceAggregator({ productName, category }: MarketplaceAggregatorProps) {
+export default function MarketplaceAggregator({ productName }: MarketplaceAggregatorProps) {
   const [activeMarketplace, setActiveMarketplace] = useState("tokopedia");
   const [searchQuery, setSearchQuery] = useState(productName);
   const [isLoading, setIsLoading] = useState(true);
 
   const active = MARKETPLACES.find((m) => m.id === activeMarketplace)!;
+  const config = MARKETPLACE_CONFIG[activeMarketplace];
   const searchUrl = active.searchUrl(searchQuery);
 
   const handleMarketplaceChange = (id: string) => {
@@ -107,22 +67,26 @@ export default function MarketplaceAggregator({ productName, category }: Marketp
           </button>
         </form>
 
-        {/* Marketplace Tabs */}
+        {/* Marketplace Tabs with Real Logos */}
         <div className="flex gap-2 overflow-x-auto pb-1">
-          {MARKETPLACES.map((mp) => (
-            <button
-              key={mp.id}
-              onClick={() => handleMarketplaceChange(mp.id)}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition ${
-                activeMarketplace === mp.id
-                  ? `${mp.color} text-white shadow-md`
-                  : `bg-gray-100 text-gray-600 hover:bg-gray-200`
-              }`}
-            >
-              <span>{mp.icon}</span>
-              {mp.name}
-            </button>
-          ))}
+          {MARKETPLACES.map((mp) => {
+            const cfg = MARKETPLACE_CONFIG[mp.id];
+            const isActive = activeMarketplace === mp.id;
+            return (
+              <button
+                key={mp.id}
+                onClick={() => handleMarketplaceChange(mp.id)}
+                className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition ${
+                  isActive
+                    ? `${cfg.color} text-white shadow-md`
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                <cfg.Logo size={20} />
+                {cfg.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -134,7 +98,7 @@ export default function MarketplaceAggregator({ productName, category }: Marketp
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            Memuat produk dari {active.name}...
+            Memuat produk dari {config.label}...
           </div>
         </div>
       )}
@@ -151,14 +115,18 @@ export default function MarketplaceAggregator({ productName, category }: Marketp
           referrerPolicy="no-referrer-when-downgrade"
           onLoad={() => setIsLoading(false)}
           className="w-full"
-          title={`Produk di ${active.name}`}
+          title={`Produk di ${config.label}`}
         />
       </div>
 
       {/* Footer Info */}
       <div className="p-3 bg-gray-50 border-t text-xs text-gray-500 flex items-center justify-between">
-        <span>
-          Menampilkan hasil pencarian &quot;{searchQuery}&quot; di {active.name}
+        <span className="flex items-center gap-2">
+          Hasil pencarian &quot;{searchQuery}&quot; di
+          <span className="flex items-center gap-1">
+            <config.Logo size={16} />
+            <span className="font-semibold">{config.label}</span>
+          </span>
         </span>
         <a
           href={searchUrl}
@@ -166,7 +134,7 @@ export default function MarketplaceAggregator({ productName, category }: Marketp
           rel="noopener noreferrer"
           className="text-green-700 hover:underline flex items-center gap-1"
         >
-          Buka di {active.name}
+          Buka di {config.label}
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
