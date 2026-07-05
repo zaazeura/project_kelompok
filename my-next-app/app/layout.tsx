@@ -12,6 +12,7 @@ import { DigitalPaymentProvider } from "@/lib/digital-payment-context";
 import { ExpiryProvider } from "@/lib/expiry-context";
 import { MarketplaceProvider } from "@/lib/marketplace-context";
 import { PaymentProvider } from "@/lib/payment-context";
+import { ProductPromoProvider } from "@/lib/product-promo-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -37,7 +38,9 @@ export default function RootLayout({
                         <DigitalPaymentProvider>
                           <ExpiryProvider>
                             <MarketplaceProvider>
-                              <PaymentProvider>{children}</PaymentProvider>
+                              <PaymentProvider>
+                                <ProductPromoProvider>{children}</ProductPromoProvider>
+                              </PaymentProvider>
                             </MarketplaceProvider>
                           </ExpiryProvider>
                         </DigitalPaymentProvider>
