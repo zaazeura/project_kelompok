@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <!-- Background -->
+  <rect width="400" height="500" fill="#8B1A8F"/>
+  
+  <!-- Top banner -->
+  <rect x="0" y="0" width="400" height="60" fill="#E91E8C"/>
+  <text x="200" y="38" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">ADULT 1+</text>
+  
+  <!-- White label area -->
+  <rect x="30" y="80" width="340" height="120" rx="10" fill="white"/>
+  <text x="200" y="115" text-anchor="middle" fill="#8B1A8F" font-family="Arial, sans-serif" font-size="22" font-weight="bold">Tuna Flavour</text>
+  <text x="200" y="145" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="14">Rasa Tuna</text>
+  <text x="200" y="170" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="12">nikmati / kelezatan yang tidak</text>
+  <text x="200" y="188" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="12">tergantikan oleh kucing Anda</text>
+  
+  <!-- Brand name -->
+  <text x="200" y="250" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="bold" font-style="italic">whiskas</text>
+  
+  <!-- Cat illustration area -->
+  <ellipse cx="200" cy="340" rx="100" ry="80" fill="#D4A574"/>
+  
+  <!-- Cat face -->
+  <circle cx="175" cy="320" r="15" fill="#333"/>
+  <circle cx="225" cy="320" r="15" fill="#333"/>
+  <circle cx="175" cy="318" r="5" fill="white"/>
+  <circle cx="225" cy="318" r="5" fill="white"/>
+  <ellipse cx="200" cy="340" rx="8" ry="5" fill="#FFB6C1"/>
+  
+  <!-- Cat ears -->
+  <polygon points="145,270 160,300 130,300" fill="#D4A574"/>
+  <polygon points="255,270 240,300 270,300" fill="#D4A574"/>
+  <polygon points="150,280 158,300 138,300" fill="#FFB6C1"/>
+  <polygon points="250,280 242,300 262,300" fill="#FFB6C1"/>
+  
+  <!-- Whiskers -->
+  <line x1="150" y1="335" x2="110" y2="330" stroke="#333" stroke-width="2"/>
+  <line x1="150" y1="340" x2="110" y2="345" stroke="#333" stroke-width="2"/>
+  <line x1="150" y1="345" x2="110" y2="355" stroke="#333" stroke-width="2"/>
+  <line x1="250" y1="335" x2="290" y2="330" stroke="#333" stroke-width="2"/>
+  <line x1="250" y1="340" x2="290" y2="345" stroke="#333" stroke-width="2"/>
+  <line x1="250" y1="345" x2="290" y2="355" stroke="#333" stroke-width="2"/>
+  
+  <!-- Fish icon -->
+  <ellipse cx="300" cy="380" rx="40" ry="20" fill="#4CAF50"/>
+  <polygon points="340,380 360,365 360,395" fill="#4CAF50"/>
+  <circle cx="315" cy="375" r="3" fill="white"/>
+  
+  <!-- Bottom text -->
+  <rect x="30" y="430" width="340" height="50" rx="5" fill="#E91E8C"/>
+  <text x="200" y="452" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Tuna Flavour</text>
+  <text x="200" y="472" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">1.2kg / 1.2kg</text>
+</svg>
