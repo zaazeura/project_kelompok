@@ -6,6 +6,7 @@ import { ReviewProvider } from "@/lib/review-context";
 import { AuthProvider } from "@/lib/auth-context";
 import { NotifProvider } from "@/lib/notif-context";
 import { HistoryProvider } from "@/lib/history-context";
+import { DonationProvider } from "@/lib/donation-context";
 import { CourierProvider } from "@/lib/courier-context";
 
 export const metadata: Metadata = {
@@ -27,7 +28,9 @@ export default function RootLayout({
               <ReviewProvider>
                 <NotifProvider>
                   <HistoryProvider>
-                    <CourierProvider>{children}</CourierProvider>
+                    <DonationProvider>
+                      <CourierProvider>{children}</CourierProvider>
+                    </DonationProvider>
                   </HistoryProvider>
                 </NotifProvider>
               </ReviewProvider>
