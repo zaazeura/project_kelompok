@@ -82,6 +82,21 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
           <div className="font-semibold text-gray-900 mb-1 line-clamp-1">{product.name}</div>
           <div className="text-xs text-gray-400 mb-2">📍 {product.location}</div>
+          {product.marketplaceLinks && product.marketplaceLinks.length > 0 && (
+            <div className="flex items-center gap-1 mb-2">
+              <span className="text-xs text-gray-400">Tersedia di:</span>
+              <div className="flex gap-1">
+                {product.marketplaceLinks.slice(0, 3).map((link) => (
+                  <span key={link.name} className="text-sm" title={link.name}>
+                    {link.icon}
+                  </span>
+                ))}
+                {product.marketplaceLinks.length > 3 && (
+                  <span className="text-xs text-gray-400">+{product.marketplaceLinks.length - 3}</span>
+                )}
+              </div>
+            </div>
+          )}
           <div className="flex items-center gap-2 mb-3">
             <span className="text-sm text-gray-400 line-through">{formatRupiah(product.originalPrice)}</span>
             <span className="text-lg font-bold text-orange-500">{formatRupiah(product.discountPrice)}</span>

@@ -6,6 +6,7 @@ import { useHistory } from "@/lib/history-context";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Toast from "@/components/Toast";
+import DeliveryMap from "@/components/DeliveryMap";
 import { formatRupiah } from "@/lib/format";
 import Link from "next/link";
 
@@ -60,6 +61,24 @@ export default function CheckoutPage() {
       <div className="pt-28 pb-16 max-w-4xl mx-auto px-4">
         <h1 className="text-2xl font-bold text-gray-900 mb-6">Checkout</h1>
 
+        {/* Eco Notice */}
+        <div className="bg-green-50 border border-green-200 rounded-2xl p-4 mb-6 flex items-start gap-3">
+          <span className="text-2xl">🌍</span>
+          <div>
+            <p className="font-semibold text-green-800">EarthShop - Belanja Tanpa Plastik</p>
+            <p className="text-sm text-green-700 mt-1">Semua produk yang kami kirim tidak menggunakan pembungkus plastik. Kami menggunakan kemasan ramah lingkungan yang dapat didaur ulang atau terurai secara alami.</p>
+          </div>
+        </div>
+
+        {/* Delivery Area Notice */}
+        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 mb-6 flex items-start gap-3">
+          <span className="text-2xl">📍</span>
+          <div>
+            <p className="font-semibold text-blue-800">Area Pengiriman: Balikpapan Saja</p>
+            <p className="text-sm text-blue-700 mt-1">Pengiriman hanya tersedia untuk area Balikpapan. Untuk pengambilan di toko, silakan pilih metode "Ambil di Toko".</p>
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Form */}
           <div className="lg:col-span-2 space-y-4">
@@ -99,6 +118,14 @@ export default function CheckoutPage() {
                     placeholder="Masukkan alamat lengkap"
                   />
                 </div>
+
+                {/* Google Maps Delivery Location */}
+                {form.delivery === "delivery" && (
+                  <DeliveryMap
+                    address={form.address}
+                    onAddressChange={(addr) => setForm({ ...form, address: addr })}
+                  />
+                )}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Catatan (Opsional)</label>
                   <input

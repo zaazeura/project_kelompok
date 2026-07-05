@@ -13,6 +13,7 @@ import { useReviews } from "@/lib/review-context";
 import { formatRupiah, formatDateTime, isFreshProductStillGood } from "@/lib/format";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import MarketplaceLinks from "@/components/MarketplaceLinks";
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -234,6 +235,11 @@ export default function ProductDetailPage() {
                   <span className="text-green-700 text-sm font-medium">Lihat Toko →</span>
                 </div>
               </Link>
+            )}
+
+            {/* Marketplace Links */}
+            {product.marketplaceLinks && product.marketplaceLinks.length > 0 && (
+              <MarketplaceLinks links={product.marketplaceLinks} />
             )}
 
             {/* Shop Map */}

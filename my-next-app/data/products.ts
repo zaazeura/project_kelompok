@@ -1,3 +1,9 @@
+export interface MarketplaceLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 export interface Product {
   id: number;
   name: string;
@@ -26,6 +32,8 @@ export interface Product {
   rating: number;
   reviewCount: number;
   tags: string[];
+  /** Link ke marketplace lain (Tokopedia, Shopee, dll) */
+  marketplaceLinks?: MarketplaceLink[];
 }
 
 export const products: Product[] = [
@@ -53,7 +61,7 @@ export const products: Product[] = [
       "Cara penyajian: Siap santap",
       "Simpan di suhu ruang, konsumsi dalam 3 jam",
     ],
-    location: "Warung Bu Sari, Jakarta",
+    location: "Warung Bu Sari, Balikpapan",
     distance: "0.8 km",
     expiryTime: "3 jam",
     productType: "fresh",
@@ -63,6 +71,11 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 124,
     tags: ["makanan", "nasi", "pedas", "favorit"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=nasi+goreng+spesial", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=nasi+goreng+spesial", icon: "🟠" },
+      { name: "Bukalapak", url: "https://www.bukalapak.com/products?search%5Bkeywords%5D=nasi+goreng+spesial", icon: "🔴" },
+    ],
   },
   {
     id: 2,
@@ -87,7 +100,7 @@ export const products: Product[] = [
       "Cara penyajian: Panaskan sebentar untuk hasil terbaik",
       "Terbaik dikonsumsi hari yang sama",
     ],
-    location: "Bakery Corner, Jakarta",
+    location: "Bakery Corner, Balikpapan",
     distance: "1.2 km",
     expiryTime: "2 jam",
     productType: "fresh",
@@ -97,6 +110,10 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 89,
     tags: ["roti", "manis", "mentega", "artisan"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=roti+croissant", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=roti+croissant", icon: "🟠" },
+    ],
   },
   {
     id: 3,
@@ -121,7 +138,7 @@ export const products: Product[] = [
       "Cara penyajian: Aduk rata sebelum makan",
       "Simpan di kulkas, konsumsi dalam 6 jam",
     ],
-    location: "Green Kitchen, Jakarta",
+    location: "Green Kitchen, Balikpapan",
     distance: "0.5 km",
     expiryTime: "4 jam",
     productType: "fresh",
@@ -131,6 +148,11 @@ export const products: Product[] = [
     rating: 4.9,
     reviewCount: 156,
     tags: ["sehat", "organik", "sayuran", "vegan"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=salad+segar", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=salad+segar", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=salad+segar", icon: "🔵" },
+    ],
   },
   {
     id: 4,
@@ -155,7 +177,7 @@ export const products: Product[] = [
       "Tambahan: Gula, susu tersedia",
       "Kafein: Tinggi",
     ],
-    location: "Coffee Bean, Jakarta",
+    location: "Coffee Bean, Balikpapan",
     distance: "1.5 km",
     expiryTime: "1 jam",
     productType: "fresh",
@@ -165,6 +187,10 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 203,
     tags: ["kopi", "minuman", "kafein", "toraja"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=kopi+americano", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=kopi+americano", icon: "🟠" },
+    ],
   },
   {
     id: 5,
@@ -189,7 +215,7 @@ export const products: Product[] = [
       "Cara penyajian: Panaskan dalam oven 180°C selama 5 menit",
       "Simpan di kulkas, konsumsi dalam 2 hari",
     ],
-    location: "Pizza Delight, Jakarta",
+    location: "Pizza Delight, Balikpapan",
     distance: "2.1 km",
     expiryTime: "2.5 jam",
     productType: "fresh",
@@ -199,6 +225,11 @@ export const products: Product[] = [
     rating: 4.5,
     reviewCount: 178,
     tags: ["pizza", "italia", "pepperoni", "premium"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=pizza+pepperoni", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=pizza+pepperoni", icon: "🟠" },
+      { name: "GrabFood", url: "https://food.grab.com/id/en/restaurant/pizza-delight", icon: "🟢" },
+    ],
   },
   {
     id: 6,
@@ -223,7 +254,7 @@ export const products: Product[] = [
       "Alergen: Susu",
       "Simpan di suhu 2-8°C",
     ],
-    location: "Fresh Mart, Jakarta",
+    location: "Fresh Mart, Balikpapan",
     distance: "0.3 km",
     expiryTime: "5 jam",
     productType: "packaged",
@@ -232,6 +263,10 @@ export const products: Product[] = [
     rating: 4.4,
     reviewCount: 67,
     tags: ["susu", "yogurt", "sehat", "probiotik"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=susu+yogurt", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=susu+yogurt", icon: "🟠" },
+    ],
   },
   {
     id: 11,
@@ -254,7 +289,7 @@ export const products: Product[] = [
       "Alergen: Gluten, telur, susu",
       "Terbaik dikonsumsi hari yang sama",
     ],
-    location: "J.CO Donuts, Jakarta",
+    location: "J.CO Donuts, Balikpapan",
     distance: "1.0 km",
     expiryTime: "6 jam",
     productType: "fresh",
@@ -264,6 +299,10 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 312,
     tags: ["donat", "jco", "manis", "kue"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=donat+jco", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=donat+jco", icon: "🟠" },
+    ],
   },
   {
     id: 14,
@@ -287,7 +326,7 @@ export const products: Product[] = [
       "Tingkat manis: Bisa dipilih (less/normal/extra)",
       "Es: Bisa dipilih (no ice/half/less/normal)",
     ],
-    location: "Koiso Drinks, Jakarta",
+    location: "Koiso Drinks, Balikpapan",
     distance: "0.7 km",
     expiryTime: "2 jam",
     productType: "fresh",
@@ -297,6 +336,11 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 445,
     tags: ["boba", "milk tea", "minuman", "trendy"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=boba+milk+tea", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=boba+milk+tea", icon: "🟠" },
+      { name: "GrabFood", url: "https://food.grab.com/id/en/restaurant/koiso-drinks", icon: "🟢" },
+    ],
   },
   {
     id: 15,
@@ -320,7 +364,7 @@ export const products: Product[] = [
       "Alergen: Susu",
       "Topping: Wafer cone",
     ],
-    location: "Koiso Drinks, Jakarta",
+    location: "Koiso Drinks, Balikpapan",
     distance: "0.7 km",
     expiryTime: "1 jam",
     productType: "fresh",
@@ -330,6 +374,10 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 178,
     tags: ["es krim", "matcha", "dessert", "dingin"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=es+krim+matcha", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=es+krim+matcha", icon: "🟠" },
+    ],
   },
   {
     id: 16,
@@ -353,7 +401,7 @@ export const products: Product[] = [
       "Alergen: Tidak ada",
       "Cara penyajian: Siap santap",
     ],
-    location: "Warung Bu Sari, Jakarta",
+    location: "Warung Bu Sari, Balikpapan",
     distance: "0.8 km",
     expiryTime: "4 jam",
     productType: "fresh",
@@ -363,6 +411,11 @@ export const products: Product[] = [
     rating: 4.9,
     reviewCount: 267,
     tags: ["ayam", "bakar", "madu", "favorit"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=ayam+bakar+madu", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=ayam+bakar+madu", icon: "🟠" },
+      { name: "GrabFood", url: "https://food.grab.com/id/en/restaurant/warung-bu-sari", icon: "🟢" },
+    ],
   },
   {
     id: 17,
@@ -386,7 +439,7 @@ export const products: Product[] = [
       "Alergen: Kacang",
       "Cara penyajian: Panaskan sebelum makan",
     ],
-    location: "Warung Bu Sari, Jakarta",
+    location: "Warung Bu Sari, Balikpapan",
     distance: "0.8 km",
     expiryTime: "3 jam",
     productType: "fresh",
@@ -396,6 +449,11 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 198,
     tags: ["sate", "ayam", "madura", "bakar"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=sate+ayam+madura", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=sate+ayam+madura", icon: "🟠" },
+      { name: "GrabFood", url: "https://food.grab.com/id/en/restaurant/warung-bu-sari", icon: "🟢" },
+    ],
   },
   {
     id: 18,
@@ -419,7 +477,7 @@ export const products: Product[] = [
       "Alergen: Gluten, telur, kedelai",
       "Level pedas: Bisa dipilih",
     ],
-    location: "Noodle House, Jakarta",
+    location: "Noodle House, Balikpapan",
     distance: "1.2 km",
     expiryTime: "2 jam",
     productType: "fresh",
@@ -429,6 +487,11 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 321,
     tags: ["ramen", "jepang", "tonkotsu", "kuah"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=ramen+tonkotsu", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=ramen+tonkotsu", icon: "🟠" },
+      { name: "GrabFood", url: "https://food.grab.com/id/en/restaurant/noodle-house", icon: "🟢" },
+    ],
   },
   {
     id: 19,
@@ -452,7 +515,7 @@ export const products: Product[] = [
       "Alergen: Gluten, susu, telur",
       "Cara penyajian: Panaskan sebentar",
     ],
-    location: "Burger Station, Jakarta",
+    location: "Burger Station, Balikpapan",
     distance: "1.5 km",
     expiryTime: "3 jam",
     productType: "fresh",
@@ -462,6 +525,11 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 234,
     tags: ["burger", "beef", "premium", "western"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=burger+beef+premium", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=burger+beef+premium", icon: "🟠" },
+      { name: "GrabFood", url: "https://food.grab.com/id/en/restaurant/burger-station", icon: "🟢" },
+    ],
   },
   {
     id: 20,
@@ -485,7 +553,7 @@ export const products: Product[] = [
       "Tingkat manis: Normal",
       "Kafein: Sedang",
     ],
-    location: "Coffee Bean, Jakarta",
+    location: "Coffee Bean, Balikpapan",
     distance: "1.5 km",
     expiryTime: "2 jam",
     productType: "fresh",
@@ -495,6 +563,11 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 389,
     tags: ["kopi", "susu", "kekinian", "es"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=kopi+susu+kekinian", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=kopi+susu+kekinian", icon: "🟠" },
+      { name: "GrabFood", url: "https://food.grab.com/id/en/restaurant/coffee-bean", icon: "🟢" },
+    ],
   },
   // ========== KOSMETIK ==========
   {
@@ -519,7 +592,7 @@ export const products: Product[] = [
       "Ketahanan: 6-8 jam",
       "Untuk: Wanita",
     ],
-    location: "Beauty Corner, Jakarta",
+    location: "Beauty Corner, Balikpapan",
     distance: "0.9 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -528,6 +601,12 @@ export const products: Product[] = [
     rating: 4.3,
     reviewCount: 45,
     tags: ["parfum", "wanita", "mawar", "kosmetik"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=parfum+rose+garden", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=parfum+rose+garden", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=parfum+rose+garden", icon: "🔵" },
+      { name: "Blibli", url: "https://www.blibli.com/cari/parfum%20rose%20garden", icon: "🟣" },
+    ],
   },
   {
     id: 21,
@@ -551,7 +630,7 @@ export const products: Product[] = [
       "Ketahanan: Hingga 12 jam",
       "Halal certified",
     ],
-    location: "Beauty Corner, Jakarta",
+    location: "Beauty Corner, Balikpapan",
     distance: "0.9 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -560,6 +639,11 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 423,
     tags: ["lipstik", "matte", "wardah", "halal"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=lipstik+matte+wardah", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=lipstik+matte+wardah", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=lipstik+matte+wardah", icon: "🔵" },
+    ],
   },
   {
     id: 22,
@@ -583,7 +667,7 @@ export const products: Product[] = [
       "Cara pakai: 2-3 tetes, pagi dan malam",
       "Tanpa alkohol dan paraben",
     ],
-    location: "Beauty Corner, Jakarta",
+    location: "Beauty Corner, Balikpapan",
     distance: "0.9 km",
     expiryTime: "60 hari",
     productType: "packaged",
@@ -592,6 +676,12 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 567,
     tags: ["serum", "vitamin c", "skincare", "mencerahkan"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=serum+vitamin+c+avoskin", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=serum+vitamin+c+avoskin", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=serum+vitamin+c+avoskin", icon: "🔵" },
+      { name: "Blibli", url: "https://www.blibli.com/cari/serum%20vitamin%20c%20avoskin", icon: "🟣" },
+    ],
   },
   {
     id: 23,
@@ -615,7 +705,7 @@ export const products: Product[] = [
       "Ketahanan: 24 jam",
       "Mudah dibersihkan dengan eye makeup remover",
     ],
-    location: "Beauty Corner, Jakarta",
+    location: "Beauty Corner, Balikpapan",
     distance: "0.9 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -624,6 +714,10 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 289,
     tags: ["mascara", "maybelline", "bulu mata", "waterproof"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=mascara+maybelline", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=mascara+maybelline", icon: "🟠" },
+    ],
   },
   {
     id: 24,
@@ -647,7 +741,7 @@ export const products: Product[] = [
       "Finish: Semi-matte",
       "Dilengkapi SPF50+ PA+++",
     ],
-    location: "Beauty Corner, Jakarta",
+    location: "Beauty Corner, Balikpapan",
     distance: "0.9 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -656,6 +750,12 @@ export const products: Product[] = [
     rating: 4.9,
     reviewCount: 345,
     tags: ["foundation", "cushion", "laneige", "base makeup"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=foundation+cushion+laneige", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=foundation+cushion+laneige", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=foundation+cushion+laneige", icon: "🔵" },
+      { name: "Blibli", url: "https://www.blibli.com/cari/foundation%20cushion%20laneige", icon: "🟣" },
+    ],
   },
   {
     id: 25,
@@ -679,7 +779,7 @@ export const products: Product[] = [
       "Untuk semua jenis kulit",
       "Tanpa alkohol",
     ],
-    location: "Beauty Corner, Jakarta",
+    location: "Beauty Corner, Balikpapan",
     distance: "0.9 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -688,6 +788,10 @@ export const products: Product[] = [
     rating: 4.5,
     reviewCount: 198,
     tags: ["setting spray", "pixy", "makeup", "tahan lama"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=setting+spray+pixy", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=setting+spray+pixy", icon: "🟠" },
+    ],
   },
   // ========== OBAT & KESEHATAN ==========
   {
@@ -712,7 +816,7 @@ export const products: Product[] = [
       "Peringatan: Jangan melebihi dosis yang dianjurkan",
       "Kadaluarsa: 24 bulan dari tanggal produksi",
     ],
-    location: "Apotek Sehat, Jakarta",
+    location: "Apotek Sehat, Balikpapan",
     distance: "0.5 km",
     expiryTime: "7 hari",
     productType: "packaged",
@@ -721,6 +825,11 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 112,
     tags: ["vitamin", "kesehatan", "suplemen", "imun"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=vitamin+c+1000mg", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=vitamin+c+1000mg", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=vitamin+c+1000mg", icon: "🔵" },
+    ],
   },
 
 
@@ -746,7 +855,7 @@ export const products: Product[] = [
       "Untuk dewasa dan anak di atas 6 tahun",
       "Tanpa resep dokter",
     ],
-    location: "Apotek Sehat, Jakarta",
+    location: "Apotek Sehat, Balikpapan",
     distance: "0.5 km",
     expiryTime: "7 hari",
     productType: "packaged",
@@ -755,6 +864,10 @@ export const products: Product[] = [
     rating: 4.3,
     reviewCount: 156,
     tags: ["obat", "batuk", "honcode", "madu"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=obat+batuk+honcode", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=obat+batuk+honcode", icon: "🟠" },
+    ],
   },
   // ========== PERLENGKAPAN RUMAH ==========
   {
@@ -779,7 +892,7 @@ export const products: Product[] = [
       "Perawatan: Cuci dengan sabun, keringkan",
       "Garansi: 1 tahun",
     ],
-    location: "Electronics Store, Jakarta",
+    location: "Electronics Store, Balikpapan",
     distance: "2.0 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -787,6 +900,11 @@ export const products: Product[] = [
     rating: 4.5,
     reviewCount: 78,
     tags: ["dapur", "peralatan", "stainless", "kitchen"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=set+peralatan+dapur", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=set+peralatan+dapur", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=set+peralatan+dapur", icon: "🔵" },
+    ],
   },
   {
     id: 31,
@@ -810,7 +928,7 @@ export const products: Product[] = [
       "Pisau: ProBlend 6 cabang",
       "Garansi: 2 tahun",
     ],
-    location: "Electronics Store, Jakarta",
+    location: "Electronics Store, Balikpapan",
     distance: "2.0 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -818,6 +936,12 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 234,
     tags: ["blender", "philips", "dapur", "elektronik"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=blender+philips+hr2223", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=blender+philips+hr2223", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=blender+philips+hr2223", icon: "🔵" },
+      { name: "Blibli", url: "https://www.blibli.com/cari/blender%20philips%20hr2223", icon: "🟣" },
+    ],
   },
   {
     id: 32,
@@ -841,7 +965,7 @@ export const products: Product[] = [
       "Gagang: Bakelite tahan panas",
       "Garansi: 1 tahun",
     ],
-    location: "Electronics Store, Jakarta",
+    location: "Electronics Store, Balikpapan",
     distance: "2.0 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -849,6 +973,10 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 167,
     tags: ["panci", "anti lengket", "dapur", "set"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=set+panci+anti+lengket", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=set+panci+anti+lengket", icon: "🟠" },
+    ],
   },
   {
     id: 33,
@@ -872,7 +1000,7 @@ export const products: Product[] = [
       "Kapasitas debu: 2L",
       "Panjang kabel: 5m",
     ],
-    location: "Electronics Store, Jakarta",
+    location: "Electronics Store, Balikpapan",
     distance: "2.0 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -880,6 +1008,11 @@ export const products: Product[] = [
     rating: 4.5,
     reviewCount: 123,
     tags: ["vacuum", "sharp", "kebersihan", "elektronik"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=vacuum+cleaner+sharp", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=vacuum+cleaner+sharp", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=vacuum+cleaner+sharp", icon: "🔵" },
+    ],
   },
   {
     id: 34,
@@ -903,7 +1036,7 @@ export const products: Product[] = [
       "Warna: Navy, Grey, Cream",
       "Perawatan: Cuci mesin dingin",
     ],
-    location: "Home Living, Jakarta",
+    location: "Home Living, Balikpapan",
     distance: "1.3 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -911,6 +1044,10 @@ export const products: Product[] = [
     rating: 4.4,
     reviewCount: 89,
     tags: ["handuk", "katun", "mandi", "set"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=set+handuk+mandi", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=set+handuk+mandi", icon: "🟠" },
+    ],
   },
   // ========== HEWAN PELIHARAAN ==========
   {
@@ -934,7 +1071,7 @@ export const products: Product[] = [
       "Kandungan: Protein 36%, Lemak 14%, Serat 3%",
       "Cara pakai: Berikan 2-3 kali sehari sesuai kebutuhan",
     ],
-    location: "Pet Shop, Jakarta",
+    location: "Pet Shop, Balikpapan",
     distance: "1.5 km",
     expiryTime: "60 hari",
     productType: "packaged",
@@ -943,6 +1080,11 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 56,
     tags: ["kucing", "hewan", "makanan", "premium"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=makanan+kucing+premium", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=makanan+kucing+premium", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=makanan+kucing+premium", icon: "🔵" },
+    ],
   },
   {
     id: 36,
@@ -966,7 +1108,7 @@ export const products: Product[] = [
       "Kandungan: Omega 3 & 6 untuk kulit sehat",
       "Cara pakai: Sesuai takaran di kemasan",
     ],
-    location: "Pet Shop, Jakarta",
+    location: "Pet Shop, Balikpapan",
     distance: "1.5 km",
     expiryTime: "60 hari",
     productType: "packaged",
@@ -975,6 +1117,10 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 167,
     tags: ["anjing", "royal canin", "makanan", "premium"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=makanan+anjing+royal+canin", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=makanan+anjing+royal+canin", icon: "🟠" },
+    ],
   },
   {
     id: 37,
@@ -998,7 +1144,7 @@ export const products: Product[] = [
       "Bahan: Bentonite natural",
       "Anti debu: 99%",
     ],
-    location: "Pet Shop, Jakarta",
+    location: "Pet Shop, Balikpapan",
     distance: "1.5 km",
     expiryTime: "60 hari",
     productType: "packaged",
@@ -1007,6 +1153,10 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 234,
     tags: ["pasir", "kucing", "clumping", "picky"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=pasir+kucing+picky", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=pasir+kucing+picky", icon: "🟠" },
+    ],
   },
 
   {
@@ -1031,7 +1181,7 @@ export const products: Product[] = [
       "Lampu: LED RGB",
       "Bahan: Kaca 5mm",
     ],
-    location: "Pet Shop, Jakarta",
+    location: "Pet Shop, Balikpapan",
     distance: "1.5 km",
     expiryTime: "30 hari",
     productType: "packaged",
@@ -1039,6 +1189,11 @@ export const products: Product[] = [
     rating: 4.4,
     reviewCount: 67,
     tags: ["akuarium", "ikan", "hias", "filter"],
+    marketplaceLinks: [
+      { name: "Tokopedia", url: "https://www.tokopedia.com/search?st=product&q=akuarium+ikan+hias", icon: "🟢" },
+      { name: "Shopee", url: "https://shopee.co.id/search?keyword=akuarium+ikan+hias", icon: "🟠" },
+      { name: "Lazada", url: "https://www.lazada.co.id/catalog/?q=akuarium+ikan+hias", icon: "🔵" },
+    ],
   },
 ];
 
