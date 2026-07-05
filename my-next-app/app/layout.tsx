@@ -13,6 +13,7 @@ import { ExpiryProvider } from "@/lib/expiry-context";
 import { MarketplaceProvider } from "@/lib/marketplace-context";
 import { PaymentProvider } from "@/lib/payment-context";
 import { ProductPromoProvider } from "@/lib/product-promo-context";
+import { TrustScoreProvider } from "@/lib/trust-score-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -39,7 +40,9 @@ export default function RootLayout({
                           <ExpiryProvider>
                             <MarketplaceProvider>
                               <PaymentProvider>
-                                <ProductPromoProvider>{children}</ProductPromoProvider>
+                                <ProductPromoProvider>
+                                  <TrustScoreProvider>{children}</TrustScoreProvider>
+                                </ProductPromoProvider>
                               </PaymentProvider>
                             </MarketplaceProvider>
                           </ExpiryProvider>
