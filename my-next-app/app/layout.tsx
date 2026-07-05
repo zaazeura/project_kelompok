@@ -7,6 +7,7 @@ import { AuthProvider } from "@/lib/auth-context";
 import { NotifProvider } from "@/lib/notif-context";
 import { HistoryProvider } from "@/lib/history-context";
 import { DonationProvider } from "@/lib/donation-context";
+import { CourierProvider } from "@/lib/courier-context";
 
 export const metadata: Metadata = {
   title: "FoodSaver - Selamatkan Makanan, Selamatkan Bumi",
@@ -27,7 +28,9 @@ export default function RootLayout({
               <ReviewProvider>
                 <NotifProvider>
                   <HistoryProvider>
-                    <DonationProvider>{children}</DonationProvider>
+                    <DonationProvider>
+                      <CourierProvider>{children}</CourierProvider>
+                    </DonationProvider>
                   </HistoryProvider>
                 </NotifProvider>
               </ReviewProvider>
