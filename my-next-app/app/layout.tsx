@@ -6,6 +6,7 @@ import { ReviewProvider } from "@/lib/review-context";
 import { AuthProvider } from "@/lib/auth-context";
 import { NotifProvider } from "@/lib/notif-context";
 import { HistoryProvider } from "@/lib/history-context";
+import { CourierProvider } from "@/lib/courier-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -25,7 +26,9 @@ export default function RootLayout({
             <WishlistProvider>
               <ReviewProvider>
                 <NotifProvider>
-                  <HistoryProvider>{children}</HistoryProvider>
+                  <HistoryProvider>
+                    <CourierProvider>{children}</CourierProvider>
+                  </HistoryProvider>
                 </NotifProvider>
               </ReviewProvider>
             </WishlistProvider>
