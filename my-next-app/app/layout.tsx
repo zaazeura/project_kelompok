@@ -6,6 +6,7 @@ import { ReviewProvider } from "@/lib/review-context";
 import { AuthProvider } from "@/lib/auth-context";
 import { NotifProvider } from "@/lib/notif-context";
 import { HistoryProvider } from "@/lib/history-context";
+import { TrustScoreProvider } from "@/lib/trust-score-context";
 
 export const metadata: Metadata = {
   title: "FoodSaver - Selamatkan Makanan, Selamatkan Bumi",
@@ -25,7 +26,9 @@ export default function RootLayout({
             <WishlistProvider>
               <ReviewProvider>
                 <NotifProvider>
-                  <HistoryProvider>{children}</HistoryProvider>
+                  <HistoryProvider>
+                    <TrustScoreProvider>{children}</TrustScoreProvider>
+                  </HistoryProvider>
                 </NotifProvider>
               </ReviewProvider>
             </WishlistProvider>
