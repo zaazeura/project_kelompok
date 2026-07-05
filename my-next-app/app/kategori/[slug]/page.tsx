@@ -6,6 +6,10 @@ import { getCategoryBySlug, categories } from "@/data/categories";
 import { getProductsByCategory } from "@/data/products";
 import Link from "next/link";
 
+export function generateStaticParams() {
+  return categories.map((c) => ({ slug: c.slug }));
+}
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
