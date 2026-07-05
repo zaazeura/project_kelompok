@@ -9,6 +9,7 @@ import { HistoryProvider } from "@/lib/history-context";
 import { DonationProvider } from "@/lib/donation-context";
 import { CourierProvider } from "@/lib/courier-context";
 import { DigitalPaymentProvider } from "@/lib/digital-payment-context";
+import { ExpiryProvider } from "@/lib/expiry-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -31,7 +32,9 @@ export default function RootLayout({
                   <HistoryProvider>
                     <DonationProvider>
                       <CourierProvider>
-                        <DigitalPaymentProvider>{children}</DigitalPaymentProvider>
+                        <DigitalPaymentProvider>
+                          <ExpiryProvider>{children}</ExpiryProvider>
+                        </DigitalPaymentProvider>
                       </CourierProvider>
                     </DonationProvider>
                   </HistoryProvider>
