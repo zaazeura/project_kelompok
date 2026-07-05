@@ -17,6 +17,7 @@ import { TrustScoreProvider } from "@/lib/trust-score-context";
 import { QueueProvider } from "@/lib/queue-context";
 import { StockProvider } from "@/lib/stock-context";
 import { RecommendationProvider } from "@/lib/recommendation-context";
+import { QueuePredictionProvider } from "@/lib/queue-prediction-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -47,7 +48,9 @@ export default function RootLayout({
                                   <TrustScoreProvider>
                                     <QueueProvider>
                                       <StockProvider>
-                                        <RecommendationProvider>{children}</RecommendationProvider>
+                                        <RecommendationProvider>
+                                          <QueuePredictionProvider>{children}</QueuePredictionProvider>
+                                        </RecommendationProvider>
                                       </StockProvider>
                                     </QueueProvider>
                                   </TrustScoreProvider>
