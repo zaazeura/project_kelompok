@@ -2,17 +2,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const team = [
-  { name: "Andi Pratama", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" },
-  { name: "Sari Dewi", role: "Head of Operations", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face" },
-  { name: "Budi Santoso", role: "CTO", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" },
-  { name: "Maya Putri", role: "Head of Marketing", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face" },
+  { name: "Zalny Umaira Rahma", nim: "2413053", kelas: "SIB4B" },
+  { name: "Rio Rachmadana Saputra", nim: "2413069", kelas: "SIB4B" },
 ];
 
 const milestones = [
-  { year: "2023", title: "Pendirian FoodSaver", description: "FoodSaver didirikan dengan visi mengurangi limbah makanan di Indonesia." },
+  { year: "2023", title: "Pendirian EarthShop", description: "EarthShop didirikan dengan visi mengurangi limbah plastik dan menjaga kelestarian lingkungan." },
   { year: "2024", title: "Ekspansi Nasional", description: "Bermitra dengan 500+ toko dan restoran di berbagai kota besar Indonesia." },
   { year: "2025", title: "Program Donasi", description: "Meluncurkan program donasi untuk membantu masyarakat yang membutuhkan." },
-  { year: "2026", title: "Dampak Nasional", description: "Menyelamatkan 15,000+ produk dan mengurangi 2.5 ton CO₂." },
+  { year: "2026", title: "Dampak Nasional", description: "Menyelamatkan 15,000+ produk dari limbah plastik dan mengurangi 2.5 ton CO₂." },
 ];
 
 export default function AboutPage() {
@@ -23,20 +21,20 @@ export default function AboutPage() {
         {/* Hero */}
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Tentang <span className="text-green-700">FoodSaver</span>
+            Tentang <span className="text-green-700">EarthShop</span>
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Kami percaya setiap makanan memiliki nilai. FoodSaver hadir untuk menghubungkan toko dan restoran
-            dengan masyarakat yang membutuhkan, mengurangi limbah sekaligus membantu sesama.
+            Kami percaya setiap belanjaan bisa menjadi langkah kecil untuk bumi. EarthShop hadir untuk menghubungkan toko dan restoran
+            dengan masyarakat, tanpa menggunakan plastik sekali pakai.
           </p>
         </div>
 
         {/* Mission */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🌱", title: "Sustainability", desc: "Mengurangi limbah makanan dan menjaga kelestarian lingkungan." },
+            { icon: "🌱", title: "Sustainability", desc: "Mengurangi limbah plastik dan menjaga kelestarian lingkungan." },
             { icon: "🤝", title: "Community", desc: "Membangun komunitas yang saling peduli dan berbagi." },
-            { icon: "💡", title: "Innovation", desc: "Menggunakan teknologi untuk solusi yang lebih baik." },
+            { icon: "💡", title: "Innovation", desc: "Menggunakan teknologi untuk solusi ramah lingkungan yang lebih baik." },
           ].map((item) => (
             <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm text-center">
               <div className="text-4xl mb-3">{item.icon}</div>
@@ -44,6 +42,23 @@ export default function AboutPage() {
               <p className="text-sm text-gray-600">{item.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Team */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Tim Kami</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            {team.map((member) => (
+              <div key={member.nim} className="bg-white rounded-2xl p-6 shadow-sm text-center">
+                <div className="w-20 h-20 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                  {member.name.charAt(0)}
+                </div>
+                <h3 className="font-bold text-gray-900 mb-1">{member.name}</h3>
+                <p className="text-sm text-gray-500">NIM: {member.nim}</p>
+                <p className="text-xs text-gray-400 mt-1">Kelas: {member.kelas}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Timeline */}
@@ -71,9 +86,9 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="bg-green-700 rounded-2xl p-8 text-center text-white">
-          <h2 className="text-2xl font-bold mb-3">Bergabung dengan FoodSaver</h2>
+          <h2 className="text-2xl font-bold mb-3">Bergabung dengan EarthShop</h2>
           <p className="text-green-100 mb-6 max-w-lg mx-auto">
-            Jadilah bagian dari perubahan positif. Daftarkan toko Anda atau mulai berbelanja hemat hari ini.
+            Jadilah bagian dari perubahan positif. Daftarkan toko Anda atau mulai belanja ramah lingkungan hari ini.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="/kontak" className="px-6 py-3 bg-white text-green-700 font-semibold rounded-xl hover:bg-green-50 transition">

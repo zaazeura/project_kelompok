@@ -6,11 +6,11 @@ import Footer from "@/components/Footer";
 
 const faqs = [
   {
-    q: "Apa itu FoodSaver?",
-    a: "FoodSaver adalah platform marketplace yang menghubungkan toko dan restoran dengan masyarakat untuk mengurangi limbah makanan. Kami menjual makanan dan produk yang masih layak konsumsi dengan harga diskon.",
+    q: "Apa itu EarthShop?",
+    a: "EarthShop adalah platform marketplace ramah lingkungan yang menghubungkan toko dan restoran dengan masyarakat. Semua produk kami dikirim tanpa pembungkus plastik untuk menjaga kelestarian lingkungan.",
   },
   {
-    q: "Bagaimana cara berbelanja di FoodSaver?",
+    q: "Bagaimana cara berbelanja di EarthShop?",
     a: "Cukup pilih produk yang diinginkan, tambahkan ke keranjang, lalu checkout. Anda bisa memilih antara diantar ke alamat atau ambil langsung di toko.",
   },
   {
@@ -31,11 +31,11 @@ const faqs = [
   },
   {
     q: "Apakah ada biaya pengiriman?",
-    a: "Untuk saat ini, pengiriman di seluruh area Jakarta GRATIS! Anda juga bisa memilih opsi Ambil di Toko tanpa biaya tambahan.",
+    a: "Untuk saat ini, pengiriman hanya tersedia di area Balikpapan saja GRATIS! Anda juga bisa memilih opsi Ambil di Toko tanpa biaya tambahan.",
   },
   {
     q: "Bagaimana cara menjadi mitra toko?",
-    a: "Hubungi kami melalui halaman Kontak untuk informasi lebih lanjut tentang menjadi mitra FoodSaver.",
+    a: "Hubungi kami melalui halaman Kontak untuk informasi lebih lanjut tentang menjadi mitra EarthShop.",
   },
 ];
 

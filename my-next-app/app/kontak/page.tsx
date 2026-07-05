@@ -26,9 +26,9 @@ export default function ContactPage() {
           {/* Contact Info */}
           <div className="space-y-4">
             {[
-              { icon: "📍", title: "Alamat", detail: "Jl. Sudirman No. 123, Jakarta Selatan" },
+              { icon: "📍", title: "Alamat", detail: "Jl. Sudirman No. 123, Balikpapan" },
               { icon: "📞", title: "Telepon", detail: "+62 21 1234 5678" },
-              { icon: "✉️", title: "Email", detail: "info@foodsaver.id" },
+              { icon: "✉️", title: "Email", detail: "info@earthshop.id" },
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-2xl p-4 shadow-sm flex items-start gap-4">
                 <div className="text-2xl">{item.icon}</div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
           </div>
           <div className="relative w-full h-80">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.940639384798!2d106.82278277475549!3d-6.208763493794348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f15963a6e2e3%3A0x5c70c5c8f3e7c8e7!2sJl.%20Jenderal%20Sudirman%2C%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1720000000000!5m2!1sid!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1279.184!2d116.836!3d-1.237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zJl.%20Sudirman%2C%20Balikpapan!5e0!3m2!1sid!2sid!4v1720000000000!5m2!1sid!2sid"
               width="100%"
               height="100%"
               style={{ border: 0 }}

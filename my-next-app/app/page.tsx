@@ -23,10 +23,10 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-32 pb-10 px-4 max-w-6xl mx-auto text-center">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-          Selamatkan Makanan, <span className="text-green-700">Selamatkan Bumi</span>
+          Belanja Ramah Lingkungan, <span className="text-green-700">Tanpa Plastik</span>
         </h1>
         <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-          Temukan makanan dan kebutuhan sehari-hari dari restoran serta toko terdekat dengan harga terjangkau
+          Temukan kebutuhan sehari-hari dari restoran serta toko terdekat dengan harga terjangkau dan tanpa plastik
         </p>
         <SearchBar />
         <div className="flex justify-center gap-8 md:gap-12">

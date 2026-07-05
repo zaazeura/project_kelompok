@@ -47,7 +47,7 @@ export default function LoginPage() {
               {isLogin ? "Masuk" : "Daftar"}
             </h1>
             <p className="text-sm text-gray-500 mt-1">
-              {isLogin ? "Selamat datang kembali di FoodSaver" : "Buat akun FoodSaver Anda"}
+              {isLogin ? "Selamat datang kembali di EarthShop" : "Buat akun EarthShop Anda"}
             </p>
           </div>
 

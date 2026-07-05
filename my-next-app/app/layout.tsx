@@ -8,8 +8,8 @@ import { NotifProvider } from "@/lib/notif-context";
 import { HistoryProvider } from "@/lib/history-context";
 
 export const metadata: Metadata = {
-  title: "FoodSaver - Selamatkan Makanan, Selamatkan Bumi",
-  description: "Platform marketplace untuk mengurangi limbah makanan dan kebutuhan sehari-hari dengan harga terjangkau.",
+  title: "EarthShop - Belanja Ramah Lingkungan",
+  description: "Platform marketplace ramah lingkungan untuk kebutuhan sehari-hari tanpa plastik dengan harga terjangkau.",
 };
 
 export default function RootLayout({

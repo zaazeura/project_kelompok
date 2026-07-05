@@ -34,7 +34,7 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link href="/" className="text-lg font-bold text-green-700 flex items-center gap-1">
-            <span>🌿</span> FoodSaver
+            <span>🌍</span> EarthShop
           </Link>
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-5">

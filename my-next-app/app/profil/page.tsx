@@ -50,7 +50,7 @@ export default function ProfilePage() {
               {user.name.charAt(0).toUpperCase()}
             </div>
             <h2 className="text-xl font-bold text-white">{user.name}</h2>
-            <p className="text-green-100 text-sm">Pengguna FoodSaver</p>
+            <p className="text-green-100 text-sm">Pengguna EarthShop</p>
           </div>
 
           <div className="p-6 space-y-4">

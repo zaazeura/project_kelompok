@@ -6,10 +6,10 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div>
           <Link href="/" className="text-white font-bold text-lg mb-3 flex items-center gap-1">
-            <span>🌿</span> FoodSaver
+            <span>🌍</span> EarthShop
           </Link>
           <p className="text-sm mt-2">
-            Platform marketplace untuk mengurangi limbah makanan dan kebutuhan sehari-hari.
+            Platform marketplace ramah lingkungan tanpa plastik untuk kebutuhan sehari-hari.
           </p>
         </div>
         <div>
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-center mt-8 text-sm border-t border-white/10 pt-6">
-        &copy; 2026 FoodSaver. Semua hak dilindungi.
+        &copy; 2026 EarthShop. Semua hak dilindungi.
       </div>
     </footer>
   );

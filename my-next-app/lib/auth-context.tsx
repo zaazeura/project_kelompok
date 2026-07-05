@@ -28,7 +28,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       name: email.split("@")[0],
       email,
       phone: "+62 812 3456 7890",
-      address: "Jl. Sudirman No. 123, Jakarta Selatan",
+      address: "Jl. Sudirman No. 123, Balikpapan",
     });
     return true;
   }, []);
