@@ -14,6 +14,7 @@ import { MarketplaceProvider } from "@/lib/marketplace-context";
 import { PaymentProvider } from "@/lib/payment-context";
 import { ProductPromoProvider } from "@/lib/product-promo-context";
 import { TrustScoreProvider } from "@/lib/trust-score-context";
+import { QueueProvider } from "@/lib/queue-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -41,7 +42,9 @@ export default function RootLayout({
                             <MarketplaceProvider>
                               <PaymentProvider>
                                 <ProductPromoProvider>
-                                  <TrustScoreProvider>{children}</TrustScoreProvider>
+                                  <TrustScoreProvider>
+                                    <QueueProvider>{children}</QueueProvider>
+                                  </TrustScoreProvider>
                                 </ProductPromoProvider>
                               </PaymentProvider>
                             </MarketplaceProvider>
