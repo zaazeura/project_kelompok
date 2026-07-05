@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { useAuth } from "@/lib/auth-context";
 
 export default function ProfilePage() {
-  const { user, isLoggedIn, updateUser, logout } = useAuth();
+  const { user, isLoggedIn, updateUser, logout, changePassword, validatePassword } = useAuth();
   const router = useRouter();
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({
@@ -16,6 +16,15 @@ export default function ProfilePage() {
     phone: user?.phone || "",
     address: user?.address || "",
   });
+  const [showChangePassword, setShowChangePassword] = useState(false);
+  const [passwordForm, setPasswordForm] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+  const [passwordError, setPasswordError] = useState("");
+  const [passwordSuccess, setPasswordSuccess] = useState("");
+  const [passwordLoading, setPasswordLoading] = useState(false);
 
   if (!isLoggedIn || !user) {
     return (
@@ -36,6 +45,40 @@ export default function ProfilePage() {
       </main>
     );
   }
+
+  const handlePasswordChange = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPasswordError("");
+    setPasswordSuccess("");
+
+    if (!passwordForm.currentPassword || !passwordForm.newPassword || !passwordForm.confirmPassword) {
+      setPasswordError("Semua field harus diisi");
+      return;
+    }
+
+    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+      setPasswordError("Password baru tidak cocok");
+      return;
+    }
+
+    const validation = validatePassword(passwordForm.newPassword);
+    if (!validation.valid) {
+      setPasswordError(validation.errors.join(", "));
+      return;
+    }
+
+    setPasswordLoading(true);
+    const result = await changePassword(passwordForm.currentPassword, passwordForm.newPassword);
+    setPasswordLoading(false);
+
+    if (result.success) {
+      setPasswordSuccess("Password berhasil diubah");
+      setPasswordForm({ currentPassword: "", newPassword: "", confirmPassword: "" });
+      setTimeout(() => { setShowChangePassword(false); setPasswordSuccess(""); }, 2000);
+    } else {
+      setPasswordError(result.error || "Gagal mengubah password");
+    }
+  };
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -130,13 +173,89 @@ export default function ProfilePage() {
               </>
             ) : (
               <button
-                onClick={() => setEditing(true)}
+                onClick={() => {
+                  setForm({ name: user.name, email: user.email, phone: user.phone, address: user.address });
+                  setEditing(true);
+                }}
                 className="flex-1 py-2.5 border-2 border-green-700 text-green-700 font-semibold rounded-xl hover:bg-green-50 transition"
               >
                 Edit Profil
               </button>
             )}
           </div>
+        </div>
+
+        {/* Change Password */}
+        <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
+          <button
+            onClick={() => setShowChangePassword(!showChangePassword)}
+            className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-lg">
+                🔒
+              </div>
+              <div className="text-left">
+                <h3 className="font-bold text-gray-900">Ubah Password</h3>
+                <p className="text-xs text-gray-500">Perbarui password akun Anda</p>
+              </div>
+            </div>
+            <span className="text-gray-400">{showChangePassword ? "▲" : "▼"}</span>
+          </button>
+
+          {showChangePassword && (
+            <div className="px-6 pb-6 border-t">
+              {passwordError && (
+                <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600">
+                  {passwordError}
+                </div>
+              )}
+              {passwordSuccess && (
+                <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-xl text-sm text-green-600">
+                  {passwordSuccess}
+                </div>
+              )}
+              <form onSubmit={handlePasswordChange} className="space-y-3 mt-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Password Saat Ini</label>
+                  <input
+                    type="password"
+                    value={passwordForm.currentPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, currentPassword: e.target.value })}
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    placeholder="••••••••"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Password Baru</label>
+                  <input
+                    type="password"
+                    value={passwordForm.newPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    placeholder="••••••••"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Konfirmasi Password Baru</label>
+                  <input
+                    type="password"
+                    value={passwordForm.confirmPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    placeholder="••••••••"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={passwordLoading}
+                  className="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition disabled:opacity-50"
+                >
+                  {passwordLoading ? "Memproses..." : "Ubah Password"}
+                </button>
+              </form>
+            </div>
+          )}
         </div>
 
         {/* Google Maps Lokasi */}
