@@ -63,15 +63,60 @@ export default function Home() {
       {/* Produk */}
       <section className="max-w-6xl mx-auto px-4 mb-16">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-xl font-bold text-gray-900">Produk Tersedia</h2>
+          <h2 className="text-xl font-bold text-gray-900">Produk Tersedia ({products.length} produk)</h2>
           <Link href="/produk" className="text-sm text-green-700 font-medium hover:underline">
             Lihat Semua →
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {products.slice(0, 6).map((p) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {products.slice(0, 16).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
+        </div>
+        <div className="text-center mt-6">
+          <Link
+            href="/produk"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-green-700 text-white font-semibold rounded-xl hover:bg-green-800 transition"
+          >
+            Lihat Semua {products.length} Produk →
+          </Link>
+        </div>
+      </section>
+
+      {/* Marketplace Section */}
+      <section className="max-w-6xl mx-auto px-4 mb-16">
+        <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-6 text-white">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="text-xl font-bold flex items-center gap-2">
+                <span>🛒</span> Belanja di Marketplace Lain
+              </h2>
+              <p className="text-sm text-orange-100 mt-1">Cari produk dari Shopee, Tokopedia, Lazada, dan lainnya</p>
+            </div>
+            <Link
+              href="/produk?search="
+              className="px-4 py-2 bg-white text-orange-600 font-semibold rounded-xl hover:bg-orange-50 transition text-sm"
+            >
+              Mulai Cari
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { name: "Tokopedia", icon: "🟢", bg: "bg-green-600" },
+              { name: "Shopee", icon: "🟠", bg: "bg-orange-500" },
+              { name: "Lazada", icon: "🔵", bg: "bg-blue-600" },
+              { name: "TikTok Shop", icon: "🎵", bg: "bg-gray-800" },
+            ].map((mp) => (
+              <Link
+                key={mp.name}
+                href="/produk?search="
+                className={`${mp.bg} rounded-xl p-3 text-center text-white font-medium text-sm hover:opacity-90 transition`}
+              >
+                <span className="text-xl block mb-1">{mp.icon}</span>
+                {mp.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

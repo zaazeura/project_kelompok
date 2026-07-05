@@ -13,7 +13,7 @@ import { useReviews } from "@/lib/review-context";
 import { formatRupiah, formatDateTime, isFreshProductStillGood } from "@/lib/format";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import MarketplaceLinks from "@/components/MarketplaceLinks";
+import MarketplaceAggregator from "@/components/MarketplaceAggregator";
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -237,10 +237,11 @@ export default function ProductDetailPage() {
               </Link>
             )}
 
-            {/* Marketplace Links */}
-            {product.marketplaceLinks && product.marketplaceLinks.length > 0 && (
-              <MarketplaceLinks links={product.marketplaceLinks} />
-            )}
+            {/* Marketplace Aggregator */}
+            <MarketplaceAggregator
+              productName={product.name}
+              category={product.categorySlug}
+            />
 
             {/* Shop Map */}
             {shop && (
