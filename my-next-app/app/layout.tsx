@@ -8,6 +8,7 @@ import { NotifProvider } from "@/lib/notif-context";
 import { HistoryProvider } from "@/lib/history-context";
 import { DonationProvider } from "@/lib/donation-context";
 import { CourierProvider } from "@/lib/courier-context";
+import { DigitalPaymentProvider } from "@/lib/digital-payment-context";
 
 export const metadata: Metadata = {
   title: "EarthShop - Belanja Ramah Lingkungan",
@@ -29,7 +30,9 @@ export default function RootLayout({
                 <NotifProvider>
                   <HistoryProvider>
                     <DonationProvider>
-                      <CourierProvider>{children}</CourierProvider>
+                      <CourierProvider>
+                        <DigitalPaymentProvider>{children}</DigitalPaymentProvider>
+                      </CourierProvider>
                     </DonationProvider>
                   </HistoryProvider>
                 </NotifProvider>
