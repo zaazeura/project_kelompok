@@ -1075,9 +1075,10 @@ export const products: Product[] = [
     slug: "makanan-kucing-premium",
     shopId: "pet-shop",
     categorySlug: "hewan-peliharaan",
-    image: "/images/makanan-kucing.svg",
+    image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=450&fit=crop",
     images: [
-      "/images/makanan-kucing.svg",
+      "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=800&h=600&fit=crop",
     ],
     originalPrice: 85000,
     discountPrice: 68000,
@@ -1112,10 +1113,10 @@ export const products: Product[] = [
     slug: "makanan-anjing-royal-canin",
     shopId: "pet-shop",
     categorySlug: "hewan-peliharaan",
-    image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?w=600&h=450&fit=crop",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=450&fit=crop",
     images: [
-      "https://images.unsplash.com/photo-1534361960057-19889db9621e?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1534361960057-19889db9621e?w=800&h=600&fit=crop",
     ],
     originalPrice: 185000,
     discountPrice: 138750,
@@ -1149,10 +1150,10 @@ export const products: Product[] = [
     slug: "pasir-kucing-picky",
     shopId: "pet-shop",
     categorySlug: "hewan-peliharaan",
-    image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600&h=450&fit=crop",
+    image: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=600&h=450&fit=crop",
     images: [
-      "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=800&h=600&fit=crop",
     ],
     originalPrice: 45000,
     discountPrice: 36000,
@@ -1235,7 +1236,7 @@ export const products: Product[] = [
   },
   {
     id: 42, name: "Mie Ayam Bakso", slug: "mie-ayam-bakso", shopId: "noodle-house", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=800&h=600&fit=crop"],
     originalPrice: 28000, discountPrice: 22000, discountPercent: 21,
     description: "Mie ayam bakso dengan kuah kaldu ayam yang gurih. Dilengkapi bakso sapi kenyal.", details: ["Porsi: 1 mangkuk", "Topping: Ayam, bakso", "Kuah: Kaldu ayam", "Sambal tersedia"],
     location: "Noodle House, Balikpapan", distance: "1.2 km", expiryTime: "2 jam", productType: "fresh",
@@ -1249,7 +1250,7 @@ export const products: Product[] = [
   },
   {
     id: 43, name: "Gado-Gado Jakarta", slug: "gado-gado-jakarta", shopId: "green-kitchen", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&h=600&fit=crop"],
     originalPrice: 22000, discountPrice: 15000, discountPercent: 32,
     description: "Gado-gado segar dengan bumbu kacang kental. Sayuran rebus dan lontong.", details: ["Porsi: 1 porsi", "Bahan: Selada, tahu, tempe, telur", "Bumbu: Kacang", "Lontong included"],
     location: "Green Kitchen, Balikpapan", distance: "0.5 km", expiryTime: "3 jam", productType: "fresh",
@@ -1276,7 +1277,7 @@ export const products: Product[] = [
   },
   {
     id: 45, name: "Martabak Manis", slug: "martabak-manis", shopId: "bakery-corner", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1549931319-a545753467c8?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1549931319-a545753467c8?w=800&h=600&fit=crop"],
     originalPrice: 35000, discountPrice: 25000, discountPercent: 29,
     description: "Martabak manis tipis kering dengan berbagai topping pilihan. Meises, keju, kacang.", details: ["Ukuran: Full", "Topping: Meises, keju, kacang", "Tekstur: Tipis kering", "Hangat"],
     location: "Bakery Corner, Balikpapan", distance: "1.2 km", expiryTime: "3 jam", productType: "fresh",
@@ -1291,7 +1292,7 @@ export const products: Product[] = [
   },
   {
     id: 46, name: "Soto Ayam Lamongan", slug: "soto-ayam-lamongan", shopId: "warung-bu-sari", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=800&h=600&fit=crop"],
     originalPrice: 25000, discountPrice: 18000, discountPercent: 28,
     description: "Soto ayam Lamongan asli dengan kuah kuning gurih. Dilengkapi telur, ayam suwir.", details: ["Porsi: 1 mangkuk", "Kuah: Kuning", "Topping: Ayam, telur, perkedel", "Pelengkap: Sambal, jeruk"],
     location: "Warung Bu Sari, Balikpapan", distance: "0.8 km", expiryTime: "2 jam", productType: "fresh",
@@ -1305,7 +1306,7 @@ export const products: Product[] = [
   },
   {
     id: 47, name: "Teh Tarik", slug: "teh-tarik", shopId: "koiso-drinks", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1558857563-b371033873b8?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1558857563-b371033873b8?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&h=600&fit=crop"],
     originalPrice: 15000, discountPrice: 10000, discountPercent: 33,
     description: "Teh tarik asli dengan busa yang melimpah. Manis dan creamy.", details: ["Ukuran: 350ml", "Es: Ya", "Tingkat manis: Normal", "Susu: Full cream"],
     location: "Koiso Drinks, Balikpapan", distance: "0.7 km", expiryTime: "1 jam", productType: "fresh",
@@ -1318,7 +1319,7 @@ export const products: Product[] = [
   },
   {
     id: 48, name: "Chicken Katsu", slug: "chicken-katsu", shopId: "burger-station", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=800&h=600&fit=crop"],
     originalPrice: 42000, discountPrice: 32000, discountPercent: 24,
     description: "Chicken katsu renyah dengan saus katsu Jepang. Nasi putih dan salad.", details: ["Berat: 200g", "Saus: Katsu", "Pelengkap: Nasi, salad", "Tekstur: Renyah"],
     location: "Burger Station, Balikpapan", distance: "1.5 km", expiryTime: "3 jam", productType: "fresh",
@@ -1332,7 +1333,7 @@ export const products: Product[] = [
   },
   {
     id: 49, name: "Jus Alpukat", slug: "jus-alpukat", shopId: "green-kitchen", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1623065039801-0e7e3b28b4eb?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1623065039801-0e7e3b28b4eb?w=800&h=600&fit=crop"],
     originalPrice: 18000, discountPrice: 12000, discountPercent: 33,
     description: "Jus alpukat segar tanpa gula tambahan. Kaya serat dan vitamin.", details: ["Ukuran: 350ml", "Gula: Tanpa tambahan", "Es: Ya", "Alpukat: Segar"],
     location: "Green Kitchen, Balikpapan", distance: "0.5 km", expiryTime: "1 jam", productType: "fresh",
@@ -1345,7 +1346,7 @@ export const products: Product[] = [
   },
   {
     id: 50, name: "Kentang Goreng", slug: "kentang-goreng", shopId: "burger-station", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop"],
     originalPrice: 20000, discountPrice: 15000, discountPercent: 25,
     description: "Kentang goreng renyah dengan bumbu spesial. Cocok sebagai camilan.", details: ["Berat: 150g", "Bumbu: Spesial", "Tekstur: Renyah", "Saus: Tomat & mayo"],
     location: "Burger Station, Balikpapan", distance: "1.5 km", expiryTime: "2 jam", productType: "fresh",
@@ -1386,7 +1387,7 @@ export const products: Product[] = [
   },
   {
     id: 53, name: "Pisang Goreng", slug: "pisang-goreng", shopId: "bakery-corner", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800&h=600&fit=crop"],
     originalPrice: 12000, discountPrice: 8000, discountPercent: 33,
     description: "Pisang goreng crispy dengan tepung rahasia. Manis dan renyah.", details: ["Isi: 4 pcs", "Tepung: Crispy", "Pisang: Raja", "Hangat"],
     location: "Bakery Corner, Balikpapan", distance: "1.2 km", expiryTime: "2 jam", productType: "fresh",
@@ -1398,7 +1399,7 @@ export const products: Product[] = [
   },
   {
     id: 54, name: "Es Jeruk Segar", slug: "es-jeruk-segar", shopId: "koiso-drinks", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1558857563-b371033873b8?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1558857563-b371033873b8?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=800&h=600&fit=crop"],
     originalPrice: 12000, discountPrice: 8000, discountPercent: 33,
     description: "Es jeruk segar peras langsung. Tanpa gula tambahan, vitamin C tinggi.", details: ["Ukuran: 350ml", "Jeruk: Segar", "Es: Ya", "Gula: Tanpa tambahan"],
     location: "Koiso Drinks, Balikpapan", distance: "0.7 km", expiryTime: "1 jam", productType: "fresh",
@@ -1425,7 +1426,7 @@ export const products: Product[] = [
   },
   {
     id: 56, name: "Smoothie Bowl", slug: "smoothie-bowl", shopId: "green-kitchen", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1590301157890-4810ed352733?w=800&h=600&fit=crop"],
     originalPrice: 38000, discountPrice: 28000, discountPercent: 26,
     description: "Smoothie bowl acai berry dengan granola, buah segar, dan madu organik.", details: ["Ukuran: 350ml", "Basis: Acai berry", "Topping: Granola, pisang, blueberry", "Madu: Organik"],
     location: "Green Kitchen, Balikpapan", distance: "0.5 km", expiryTime: "1 jam", productType: "fresh",
@@ -1439,7 +1440,7 @@ export const products: Product[] = [
   },
   {
     id: 57, name: "Roti Bakar Coklat", slug: "roti-bakar-coklat", shopId: "bakery-corner", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1509365390695-33aee754301f?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1509365390695-33aee754301f?w=800&h=600&fit=crop"],
     originalPrice: 15000, discountPrice: 10000, discountPercent: 33,
     description: "Roti bakar dengan olesan coklat meises yang melimpah. Manis dan lembut.", details: ["Roti: Roti tawar", "Isi: Coklat meises", "Tekstur: Lembut", "Hangat"],
     location: "Bakery Corner, Balikpapan", distance: "1.2 km", expiryTime: "2 jam", productType: "fresh",
@@ -1465,7 +1466,7 @@ export const products: Product[] = [
   },
   {
     id: 59, name: "Milkshake Coklat", slug: "milkshake-coklat", shopId: "koiso-drinks", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1558857563-b371033873b8?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1558857563-b371033873b8?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=800&h=600&fit=crop"],
     originalPrice: 22000, discountPrice: 16000, discountPercent: 27,
     description: "Milkshake coklat premium dengan es krim vanilla. creamy dan manis.", details: ["Ukuran: 400ml", "Rasa: Coklat", "Es krim: Vanilla", "Whipped cream"],
     location: "Koiso Drinks, Balikpapan", distance: "0.7 km", expiryTime: "1 jam", productType: "fresh",
@@ -1478,7 +1479,7 @@ export const products: Product[] = [
   },
   {
     id: 60, name: "Pepes Ikan", slug: "pepes-ikan", shopId: "warung-bu-sari", categorySlug: "makanan-minuman",
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop"],
     originalPrice: 20000, discountPrice: 14000, discountPercent: 30,
     description: "Pepes ikan dengan bumbu rempah tradisional. Dibungkus daun pisang.", details: ["Isi: 1 bungkus", "Ikan: Gurame", "Bumbu: Rempah", "Daun pisang"],
     location: "Warung Bu Sari, Balikpapan", distance: "0.8 km", expiryTime: "4 jam", productType: "fresh",
@@ -1626,7 +1627,7 @@ export const products: Product[] = [
   // ========== TAMBAHAN: PERLENGKAPAN RUMAH ==========
   {
     id: 70, name: "Kipas Angin Meja", slug: "kipas-angin-meja", shopId: "electronics-store", categorySlug: "perlengkapan-rumah",
-    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1585659486664-e7c35cf1d2c1?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1585659486664-e7c35cf1d2c1?w=800&h=600&fit=crop"],
     originalPrice: 125000, discountPrice: 87500, discountPercent: 30,
     description: "Kipas angin meja 3 speed dengan putaran 360 derajat. Hemat listrik.", details: ["Daya: 45W", "Kecepatan: 3 level", "Putaran: 360°", "Bahan: Besi"],
     location: "Electronics Store, Balikpapan", distance: "2.0 km", expiryTime: "30 hari", productType: "packaged",
@@ -1641,7 +1642,7 @@ export const products: Product[] = [
   },
   {
     id: 71, name: "Set Sapu Pel", slug: "set-sapu-pel", shopId: "home-living", categorySlug: "perlengkapan-rumah",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1585659486664-e7c35cf1d2c1?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1585659486664-e7c35cf1d2c1?w=800&h=600&fit=crop"],
     originalPrice: 85000, discountPrice: 59500, discountPercent: 30,
     description: "Set sapu pel lengkap dengan ember dan tempat pel. Ringan dan mudah digunakan.", details: ["Isi: Sapu, pel, ember", "Bahan: Plastik PP", "Gagang: Aluminium", "Ringan"],
     location: "Home Living, Balikpapan", distance: "1.3 km", expiryTime: "30 hari", productType: "packaged",
@@ -1685,7 +1686,7 @@ export const products: Product[] = [
   },
   {
     id: 74, name: "Gantungan Baju 10 pcs", slug: "gantungan-baju-10pcs", shopId: "home-living", categorySlug: "perlengkapan-rumah",
-    image: "https://images.unsplash.com/photo-1616627561839-074385245ff6?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1616627561839-074385245ff6?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop"],
     originalPrice: 35000, discountPrice: 24500, discountPercent: 30,
     description: "Gantungan baju plastik 10 pcs dengan jepitan kuat. Anti slip.", details: ["Isi: 10 pcs", "Bahan: Plastik PP", "Warna: Putih", "Anti slip"],
     location: "Home Living, Balikpapan", distance: "1.3 km", expiryTime: "30 hari", productType: "packaged",
@@ -1699,7 +1700,7 @@ export const products: Product[] = [
   },
   {
     id: 75, name: "Sikat Gigi Oral-B", slug: "sikat-gigi-oralb", shopId: "home-living", categorySlug: "perlengkapan-rumah",
-    image: "https://images.unsplash.com/photo-1616627561839-074385245ff6?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1616627561839-074385245ff6?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=600&fit=crop"],
     originalPrice: 15000, discountPrice: 10500, discountPercent: 30,
     description: "Sikat gigi Oral-B dengan bulu lembut. Membersihkan hingga sela-sela gigi.", details: ["Bulu: Extra soft", "Gagang: Ergonomis", "Head: Small", "Anti bakteri"],
     location: "Home Living, Balikpapan", distance: "1.3 km", expiryTime: "30 hari", productType: "packaged",
@@ -1713,7 +1714,7 @@ export const products: Product[] = [
   },
   {
     id: 76, name: "Tempat Sampah 20L", slug: "tempat-sampah-20l", shopId: "home-living", categorySlug: "perlengkapan-rumah",
-    image: "https://images.unsplash.com/photo-1616627561839-074385245ff6?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1616627561839-074385245ff6?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=800&h=600&fit=crop"],
     originalPrice: 45000, discountPrice: 31500, discountPercent: 30,
     description: "Tempat sampah 20L dengan tutup pedal. Anti bau dan mudah dibersihkan.", details: ["Volume: 20L", "Tutup: Pedal", "Bahan: Plastik", "Anti bau"],
     location: "Home Living, Balikpapan", distance: "1.3 km", expiryTime: "30 hari", productType: "packaged",
@@ -1727,7 +1728,7 @@ export const products: Product[] = [
   },
   {
     id: 77, name: "Ember 10 Liter", slug: "ember-10-liter", shopId: "home-living", categorySlug: "perlengkapan-rumah",
-    image: "https://images.unsplash.com/photo-1616627561839-074385245ff6?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1616627561839-074385245ff6?w=800&h=600&fit=crop"],
+    image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600&h=450&fit=crop", images: ["https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=800&h=600&fit=crop"],
     originalPrice: 25000, discountPrice: 17500, discountPercent: 30,
     description: "Ember 10 liter dari plastik tebal. Cocok untuk cuci mobil atau pel lantai.", details: ["Volume: 10L", "Bahan: Plastik tebal", "Warna: Biru", "Tahan lama"],
     location: "Home Living, Balikpapan", distance: "1.3 km", expiryTime: "30 hari", productType: "packaged",
