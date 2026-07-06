@@ -27,7 +27,7 @@ export default function ContactPage() {
           <div className="space-y-4">
             {[
               { icon: "📍", title: "Alamat", detail: "Jl. Sudirman No. 123, Balikpapan" },
-              { icon: "✉️", title: "Email", detail: "info@earthshop.id" },
+              { icon: "✉️", title: "Email", detail: "earthshop.team@gmail.com" },
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-2xl p-4 shadow-sm flex items-start gap-4">
                 <div className="text-2xl">{item.icon}</div>
