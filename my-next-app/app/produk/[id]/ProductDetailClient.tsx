@@ -13,7 +13,7 @@ import { useReviews } from "@/lib/review-context";
 import { formatRupiah, formatDateTime, isFreshProductStillGood } from "@/lib/format";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import MarketplaceAggregator from "@/components/MarketplaceAggregator";
+import MarketplaceButtons from "@/components/MarketplaceButtons";
 
 export default function ProductDetailClient() {
   const params = useParams();
@@ -187,9 +187,34 @@ export default function ProductDetailClient() {
               </div>
 
               {/* Quantity */}
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-2">
                 <span className="text-sm font-medium text-gray-700">Jumlah:</span>
                 <QuantitySelector value={quantity} onChange={setQuantity} />
+              </div>
+
+              {/* Stock Info */}
+              <div className="mb-6">
+                {product.stock > 0 ? (
+                  <div className="flex items-center gap-2">
+                    <span className={`text-sm font-medium ${
+                      product.stock <= 5 ? "text-red-600" : product.stock <= 15 ? "text-amber-600" : "text-green-600"
+                    }`}>
+                      Stok tersisa: {product.stock} unit
+                    </span>
+                    {product.stock <= 5 && (
+                      <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs rounded-full font-medium animate-pulse">
+                        Habis!
+                      </span>
+                    )}
+                    {product.stock > 5 && product.stock <= 15 && (
+                      <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-xs rounded-full font-medium">
+                        Terbatas
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <span className="text-sm font-medium text-red-600">Stok habis</span>
+                )}
               </div>
 
               {/* Total */}
@@ -237,11 +262,8 @@ export default function ProductDetailClient() {
               </Link>
             )}
 
-            {/* Marketplace Aggregator */}
-            <MarketplaceAggregator
-              productName={product.name}
-              category={product.categorySlug}
-            />
+            {/* Marketplace Buttons */}
+            <MarketplaceButtons productName={product.name} />
 
             {/* Shop Map */}
             {shop && (

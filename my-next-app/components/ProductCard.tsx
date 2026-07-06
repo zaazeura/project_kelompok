@@ -93,7 +93,17 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           </div>
           <div className="font-semibold text-gray-900 mb-1 line-clamp-1">{product.name}</div>
-          <div className="text-xs text-gray-400 mb-2">📍 {product.location}</div>
+          <div className="text-xs text-gray-400 mb-1">📍 {product.location}</div>
+          <div className={`text-xs font-medium mb-2 ${
+            product.stock <= 0 ? "text-red-600" :
+            product.stock <= 5 ? "text-red-500" :
+            product.stock <= 15 ? "text-amber-600" :
+            "text-green-600"
+          }`}>
+            {product.stock <= 0 ? "Stok habis" :
+             product.stock <= 5 ? `Sisa ${product.stock}` :
+             `Stok: ${product.stock}`}
+          </div>
           {product.marketplaceLinks && product.marketplaceLinks.length > 0 && (
             <div className="flex items-center gap-1 mb-2">
               <span className="text-xs text-gray-400">Tersedia di:</span>

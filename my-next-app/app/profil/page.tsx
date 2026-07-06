@@ -108,7 +108,7 @@ export default function ProfilePage() {
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm text-gray-900 placeholder-gray-400"
                   />
                 ) : (
                   <div className="text-gray-800">{user.email}</div>
@@ -127,7 +127,7 @@ export default function ProfilePage() {
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm text-gray-900 placeholder-gray-400"
                   />
                 ) : (
                   <div className="text-gray-800">{user.phone || "-"}</div>
@@ -146,7 +146,7 @@ export default function ProfilePage() {
                     value={form.address}
                     onChange={(e) => setForm({ ...form, address: e.target.value })}
                     rows={2}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm text-gray-900 placeholder-gray-400"
                   />
                 ) : (
                   <div className="text-gray-800">{user.address || "-"}</div>
@@ -222,7 +222,7 @@ export default function ProfilePage() {
                     type="password"
                     value={passwordForm.currentPassword}
                     onChange={(e) => setPasswordForm({ ...passwordForm, currentPassword: e.target.value })}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm text-gray-900 placeholder-gray-400"
                     placeholder="••••••••"
                   />
                 </div>
@@ -232,7 +232,7 @@ export default function ProfilePage() {
                     type="password"
                     value={passwordForm.newPassword}
                     onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm text-gray-900 placeholder-gray-400"
                     placeholder="••••••••"
                   />
                 </div>
@@ -242,7 +242,7 @@ export default function ProfilePage() {
                     type="password"
                     value={passwordForm.confirmPassword}
                     onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
-                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-sm text-gray-900 placeholder-gray-400"
                     placeholder="••••••••"
                   />
                 </div>

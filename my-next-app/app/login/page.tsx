@@ -123,7 +123,7 @@ export default function LoginPage() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition"
+                  className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-gray-900 placeholder-gray-400"
                   placeholder="Nama lengkap"
                 />
               </div>
@@ -136,7 +136,7 @@ export default function LoginPage() {
                 value={form.email}
                 onChange={(e) => { setForm({ ...form, email: e.target.value }); if (emailTouched) setError(""); }}
                 onBlur={handleEmailBlur}
-                className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition ${
+                className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition text-gray-900 placeholder-gray-400 ${
                   emailTouched && form.email && !validateEmail(form.email)
                     ? "border-red-300 focus:border-red-500"
                     : "border-gray-200 focus:border-green-600"
@@ -155,7 +155,7 @@ export default function LoginPage() {
                   required
                   value={form.password}
                   onChange={(e) => handlePasswordChange(e.target.value)}
-                  className="w-full px-4 py-2.5 pr-12 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition"
+                  className="w-full px-4 py-2.5 pr-12 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-gray-900 placeholder-gray-400"
                   placeholder="••••••••"
                 />
                 <button

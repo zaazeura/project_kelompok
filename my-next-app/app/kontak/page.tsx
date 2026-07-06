@@ -27,7 +27,6 @@ export default function ContactPage() {
           <div className="space-y-4">
             {[
               { icon: "📍", title: "Alamat", detail: "Jl. Sudirman No. 123, Balikpapan" },
-              { icon: "📞", title: "Telepon", detail: "+62 21 1234 5678" },
               { icon: "✉️", title: "Email", detail: "info@earthshop.id" },
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-2xl p-4 shadow-sm flex items-start gap-4">
@@ -52,7 +51,7 @@ export default function ContactPage() {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition"
+                    className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-gray-900 placeholder-gray-400"
                     placeholder="Nama lengkap"
                   />
                 </div>
@@ -63,7 +62,7 @@ export default function ContactPage() {
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition"
+                    className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-gray-900 placeholder-gray-400"
                     placeholder="email@contoh.com"
                   />
                 </div>
@@ -74,7 +73,7 @@ export default function ContactPage() {
                   required
                   value={form.subject}
                   onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                  className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition"
+                  className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-gray-900"
                 >
                   <option value="">Pilih subjek</option>
                   <option value="general">Pertanyaan Umum</option>
@@ -90,7 +89,7 @@ export default function ContactPage() {
                   required
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition"
+                  className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-gray-900 placeholder-gray-400"
                   rows={5}
                   placeholder="Tulis pesan Anda..."
                 />

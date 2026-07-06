@@ -190,7 +190,7 @@ export default function CheckoutPage() {
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition ${
+                    className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition text-gray-900 placeholder-gray-400 ${
                       errors.name ? "border-red-500 focus:border-red-600" : "border-gray-200 focus:border-green-600"
                     }`}
                     placeholder="Masukkan nama lengkap"
@@ -203,7 +203,7 @@ export default function CheckoutPage() {
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition ${
+                    className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition text-gray-900 placeholder-gray-400 ${
                       errors.phone ? "border-red-500 focus:border-red-600" : "border-gray-200 focus:border-green-600"
                     }`}
                     placeholder="08xxxxxxxxxx"
@@ -215,7 +215,7 @@ export default function CheckoutPage() {
                   <textarea
                     value={form.address}
                     onChange={(e) => setForm({ ...form, address: e.target.value })}
-                    className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition ${
+                    className={`w-full px-4 py-2.5 border-2 rounded-xl focus:outline-none transition text-gray-900 placeholder-gray-400 ${
                       errors.address ? "border-red-500 focus:border-red-600" : "border-gray-200 focus:border-green-600"
                     }`}
                     rows={3}
@@ -237,7 +237,7 @@ export default function CheckoutPage() {
                     type="text"
                     value={form.notes}
                     onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                    className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition"
+                    className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 transition text-gray-900 placeholder-gray-400"
                     placeholder="Contoh: Antar ke rumah"
                   />
                 </div>

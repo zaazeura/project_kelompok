@@ -10,6 +10,10 @@ export interface Donation {
   organizer: string;
   endDate: string;
   category: string;
+  /** Tipe donasi: uang atau makanan */
+  donationType: "money" | "food" | "both";
+  /** Daftar makanan yang dibutuhkan (untuk donasi makanan) */
+  foodItems?: string[];
 }
 
 export const donations: Donation[] = [
@@ -25,6 +29,8 @@ export const donations: Donation[] = [
     organizer: "Panti Asuhan Harapan Bangsa",
     endDate: "2026-08-15",
     category: "Panti Asuhan",
+    donationType: "both",
+    foodItems: ["Beras 5kg", "Minyak goreng 2L", "Gula 1kg", "Telur 1kg", "Sayuran segar"],
   },
   {
     id: 2,
@@ -38,6 +44,8 @@ export const donations: Donation[] = [
     organizer: "Panti Jompo Wisma Tuna Netra",
     endDate: "2026-09-01",
     category: "Panti Jompo",
+    donationType: "food",
+    foodItems: ["Beras 10kg", "Minyak goreng 5L", "Gula 2kg", "Teh celup 1 box", "Kopi bubuk 500g"],
   },
   {
     id: 3,
@@ -51,6 +59,8 @@ export const donations: Donation[] = [
     organizer: "Lembaga Amil Zakat",
     endDate: "2026-10-15",
     category: "Sosial",
+    donationType: "food",
+    foodItems: ["Nasi kotak siap saji", "Air mineral 600ml", "Buah segar", "Roti kemasan", "Snack sehat"],
   },
   {
     id: 4,
@@ -64,6 +74,8 @@ export const donations: Donation[] = [
     organizer: "Yayasan Kasih Sayang",
     endDate: "2026-11-01",
     category: "Panti Asuhan",
+    donationType: "both",
+    foodItems: ["Susu bubuk anak 900g", "Biskuit bayi", "Buah potong", "Sayuran organik", "Daging ayam 1kg"],
   },
   {
     id: 5,
@@ -77,6 +89,7 @@ export const donations: Donation[] = [
     organizer: "Yayasan Pendidikan Bangsa",
     endDate: "2026-12-31",
     category: "Pendidikan",
+    donationType: "money",
   },
   {
     id: 6,
@@ -90,6 +103,8 @@ export const donations: Donation[] = [
     organizer: "Dinas Sosial Balikpapan",
     endDate: "2027-01-15",
     category: "Panti Jompo",
+    donationType: "food",
+    foodItems: ["Bubur instan 20 pcs", "Susu cair UHT 1L x10", "Buah pisang 2 sisir", "Roti tawar 5 bungkus", "Madu 500ml"],
   },
 ];
 

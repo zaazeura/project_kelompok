@@ -7,10 +7,10 @@ const team = [
 ];
 
 const milestones = [
-  { year: "2023", title: "Pendirian EarthShop", description: "EarthShop didirikan dengan visi mengurangi limbah plastik dan menjaga kelestarian lingkungan." },
-  { year: "2024", title: "Ekspansi Nasional", description: "Bermitra dengan 500+ toko dan restoran di berbagai kota besar Indonesia." },
-  { year: "2025", title: "Program Donasi", description: "Meluncurkan program donasi untuk membantu masyarakat yang membutuhkan." },
-  { year: "2026", title: "Dampak Nasional", description: "Menyelamatkan 15,000+ produk dari limbah plastik dan mengurangi 2.5 ton CO₂." },
+  { title: "Pendirian EarthShop", description: "EarthShop didirikan dengan visi mengurangi limbah plastik dan menjaga kelestarian lingkungan." },
+  { title: "Ekspansi Nasional", description: "Bermitra dengan 500+ toko dan restoran di berbagai kota besar Indonesia." },
+  { title: "Program Donasi", description: "Meluncurkan program donasi untuk membantu masyarakat yang membutuhkan." },
+  { title: "Dampak Nasional", description: "Menyelamatkan 15,000+ produk dari limbah plastik dan mengurangi 2.5 ton CO₂." },
 ];
 
 export default function AboutPage() {
@@ -68,10 +68,9 @@ export default function AboutPage() {
             <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-green-200" />
             <div className="space-y-8">
               {milestones.map((m, i) => (
-                <div key={m.year} className={`flex items-center ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
+                <div key={i} className={`flex items-center ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
                   <div className={`w-1/2 ${i % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"}`}>
                     <div className="bg-white rounded-2xl p-5 shadow-sm inline-block">
-                      <div className="text-green-700 font-bold text-sm mb-1">{m.year}</div>
                       <h3 className="font-semibold text-gray-900">{m.title}</h3>
                       <p className="text-sm text-gray-600 mt-1">{m.description}</p>
                     </div>
